@@ -18,8 +18,8 @@ export default function Input({ type, value, name, placeholder, onChange }) {
 Input.propTypes = {
   type: PropTypes.string.isRequired,
   value: PropTypes.string,
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
   name: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
   onChange: PropTypes.func,
 }
