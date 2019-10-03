@@ -1,4 +1,4 @@
-export const TOKEN_KEY = '@reader-Token'
+export const TOKEN_KEY = '1de9b0a30075ae8c303eb420c103c320'
 
 export const isAuthenticated = () => localStorage.getItem(TOKEN_KEY) !== null
 
