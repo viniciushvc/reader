@@ -1,54 +1,37 @@
-import React from 'react'
-
-import { Link, withRouter } from 'react-router-dom'
-
-import api from '../../services/api'
-import { login } from '../../services/auth'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import { Form, Container } from './styles'
 
-// import { Container } from './styles';
+export default function SignIn() {
+  const [email, setEmail] = useState([])
+  const [password, setPassword] = useState([])
 
-function SignIn() {
-  const handleSignIn = async e => {
+  const handleSignUp = e => {
     e.preventDefault()
-    const { email, password } = this.state
-    if (!email || !password) {
-      this.setState({ error: 'Preencha e-mail e senha para continuar!' })
-    } else {
-      try {
-        const response = await api.post('/sessions', { email, password })
-        login(response.data.token)
-        this.props.history.push('/app')
-      } catch (err) {
-        this.setState({
-          error:
-            'Houve um problema com o login, verifique suas credenciais. T.T',
-        })
-      }
-    }
   }
 
   return (
     <Container>
-      <Form onSubmit={handleSignIn}>
-        {this.state.error && <p>{this.state.error}</p>}
+      <Form onSubmit={handleSignUp}>
         <input
           type="email"
           placeholder="Endereço de e-mail"
-          onChange={e => this.setState({ email: e.target.value })}
+          value={email}
+          onChange={e => setEmail(e.target.value)}
         />
         <input
           type="password"
           placeholder="Senha"
-          onChange={e => this.setState({ password: e.target.value })}
+          value={password}
+          onChange={e => setPassword(e.target.value)}
         />
-        <button type="submit">Entrar</button>
+
+        <button type="submit">Acessar conta</button>
+
         <hr />
-        <Link to="/signup">Criar conta grátis</Link>
+        <Link to="/signup">Criar conta</Link>
       </Form>
     </Container>
   )
 }
-
-export default withRouter(SignIn)
