@@ -1,15 +1,32 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
+
+import api from '../../services/api'
 
 import { Form, Container } from './styles'
 
-export default function SignIn() {
-  const [username, setUsername] = useState([])
+export default function SignIn(props) {
+  const [name, setName] = useState([])
   const [email, setEmail] = useState([])
   const [password, setPassword] = useState([])
 
-  const handleSignUp = e => {
+  const handleSignUp = async e => {
     e.preventDefault()
+
+    if (!name || !email || !password) {
+      alert('Preencha todos os dados para se cadastrar')
+    } else {
+      try {
+        const response = await api.post('/users', { name, email, password })
+
+        toast.success(response.data.message)
+
+        props.history.push('/')
+      } catch (err) {
+        toast.error(err.response.data.error)
+      }
+    }
   }
 
   return (
@@ -18,8 +35,8 @@ export default function SignIn() {
         <input
           type="text"
           placeholder="Nome de usuário"
-          value={username}
-          onChange={e => setUsername(e.target.value)}
+          value={name}
+          onChange={e => setName(e.target.value)}
         />
         <input
           type="email"
@@ -37,7 +54,7 @@ export default function SignIn() {
         <button type="submit">Criar conta</button>
 
         <hr />
-        <Link to="/signin">Fzer login</Link>
+        <Link to="/signin">Fazer login</Link>
       </Form>
     </Container>
   )
