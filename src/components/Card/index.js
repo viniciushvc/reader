@@ -1,16 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Box } from './styles.js'
+import { News } from './styles.js'
 
 const Card = ({ onClick, list = [] }) => (
-  <>
+  <News>
     {list.map(item => (
-      <Box onClick={onClick} key={item.title}>
+      <div onClick={onClick} key={item.title}>
         <h1>{item.title}</h1>
-      </Box>
+      </div>
     ))}
-  </>
+  </News>
 )
 
 Card.propTypes = {
