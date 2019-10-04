@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: calc(100vh - 72px);
   background-color: #eee;
 `
 
@@ -43,7 +43,7 @@ export const Form = styled.form`
   button {
     color: #fff;
     font-size: 16px;
-    background: #fc6963;
+    background: #333;
     height: 56px;
     border: 0;
     border-radius: 5px;

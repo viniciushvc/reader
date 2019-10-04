@@ -18,7 +18,7 @@ html {
 
 body,
 html {
-  background-color: #fff;
+  background-color: #eee;
   color: #333;
   font-family: 'Roboto Slab', sans-serif;
   height: 100%;

@@ -1,16 +1,21 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import GlobalStyles from './styles/global'
-
 import { ToastContainer } from 'react-toastify'
 import './styles/toast.css'
 
+import LazyImport from './components/LazyImport'
+
 import { isAuthenticated } from './services/auth'
+// components
+
+import Header from './components/Header'
 
 // pages
-import Home from './pages/Home'
-import SignUp from './pages/SignUp'
-import SignIn from './pages/SignIn'
+const Home = LazyImport(() => import('./pages/Home'))
+const SignUp = LazyImport(() => import('./pages/SignUp'))
+const SignIn = LazyImport(() => import('./pages/SignIn'))
+const PageNotFound = LazyImport(() => import('./pages/PageNotFound'))
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -30,14 +35,15 @@ const Routes = () => {
     <>
       <GlobalStyles />
       <BrowserRouter>
+        <Header />
         <Switch>
-          <PrivateRoute path="/app" component={Home} />
-          {/* <Route exact path="/" component={Home} /> */}
+          <PrivateRoute exact path="/app" component={Home} />
           <Route exact path="/signup" component={SignUp} />
-          <Route path="/" component={SignIn} />
+          <Route exact path="/" component={SignIn} />
+          <Route exact path="*" component={PageNotFound} />
         </Switch>
       </BrowserRouter>
-      <ToastContainer />
+      <ToastContainer position="bottom-right" />
     </>
   )
 }
