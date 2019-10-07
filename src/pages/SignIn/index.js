@@ -15,7 +15,7 @@ export default function SignIn(props) {
     e.preventDefault()
 
     if (!email || !password) {
-      alert('Preencha e-mail e senha para continuar!')
+      toast.error('Preencha e-mail e senha para continuar!')
     } else {
       try {
         const response = await api.post('/sessions', { email, password })
@@ -24,7 +24,9 @@ export default function SignIn(props) {
 
         props.history.push('/app')
       } catch (err) {
-        toast.error(err.response.data.error)
+        const { response } = err
+
+        if (response) toast.error(response.data.error)
       }
     }
   }

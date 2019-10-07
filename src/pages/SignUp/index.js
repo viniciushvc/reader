@@ -15,7 +15,7 @@ export default function SignIn(props) {
     e.preventDefault()
 
     if (!name || !email || !password) {
-      alert('Preencha todos os dados para se cadastrar')
+      toast.error('Preencha todos os dados para se cadastrar')
     } else {
       try {
         const response = await api.post('/users', { name, email, password })
@@ -24,7 +24,9 @@ export default function SignIn(props) {
 
         props.history.push('/')
       } catch (err) {
-        toast.error(err.response.data.error)
+        const { response } = err
+
+        if (response) toast.error(response.data.error)
       }
     }
   }

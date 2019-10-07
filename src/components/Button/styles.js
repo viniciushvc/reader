@@ -3,11 +3,12 @@ import styled from 'styled-components'
 export const Btn = styled.button`
   display: inline-block;
   font-weight: 400;
+  background-color: #333;
   color: #fff;
   text-align: center;
   vertical-align: middle;
   user-select: none;
-  background-color: transparent;
+  border-radius: 5px;
   border: 1px solid transparent;
   padding: 0.375rem 0.75rem;
   cursor: pointer;

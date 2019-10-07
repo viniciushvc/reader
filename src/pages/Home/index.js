@@ -1,29 +1,37 @@
 import React, { useState, useEffect } from 'react'
+import { toast } from 'react-toastify'
 
-import Parser from 'rss-parser'
+import { Input, Card } from '../../components'
 
-import Card from '../../components/Card'
-import Input from '../../components/Input'
+import api from '../../services/api'
 
 export default function Home() {
-  const [feedList, setFeedList] = useState([])
-  const [feedUrl, setfeedUrl] = useState('https://tecnoblog.net/feed')
+  const [url, setUrl] = useState()
+  const [pages, setPages] = useState()
 
   useEffect(() => {
-    async function getFeed() {
-      const CORS = 'https://cors-anywhere.herokuapp.com/'
-      let feed
-      try {
-        feed = await new Parser().parseURL(`${CORS}${feedUrl}`)
-        setFeedList(feed.items)
-      } catch (err) {}
+    async function getPages() {
+      const { data } = await api.get('/webparser')
+
+      setPages(data)
     }
 
-    getFeed()
-  }, [feedUrl])
+    getPages()
+  }, [url])
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault()
+    try {
+      const res = await api.post('/webparser', { url })
+
+      if (res.status === 200) {
+        toast.success(res.data.message)
+      }
+    } catch (err) {
+      const { response } = err
+
+      if (response) toast.error(response.data.error)
+    }
   }
 
   return (
@@ -33,12 +41,11 @@ export default function Home() {
           type="text"
           className="form-control"
           placeholder="Link do Feed"
-          name="feedUrl"
-          onChange={e => setfeedUrl(e.target.value)}
+          onChange={e => setUrl(e.target.value)}
         />
       </form>
 
-      <Card list={feedList} />
+      <Card list={pages} />
     </div>
   )
 }
