@@ -21,7 +21,8 @@ export default function Reader(props) {
   return (
     <Container>
       <div>
-        <h2>{page.title}</h2>
+        <h1>{page.title}</h1>
+        <h2>{page.domain}</h2>
 
         <img src={page.lead_image_url} alt={page.title} />
 

@@ -9,7 +9,9 @@ export default function Card({ onClick, list = [], props }) {
     <News>
       {list.map(item => (
         <Link to={`/reader/${item.id}`} key={item.title}>
-          <h1>{item.title}</h1>
+          <div className="content">
+            <h1>{item.title}</h1>
+          </div>
         </Link>
       ))}
     </News>
