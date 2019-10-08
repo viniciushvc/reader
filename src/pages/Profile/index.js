@@ -13,9 +13,7 @@ export default function Profile() {
     async function getUser() {
       const { data } = await api.get('/users')
 
-      if (data) {
-        setName(data.name)
-      }
+      if (data) setName(data.name)
     }
 
     getUser()
