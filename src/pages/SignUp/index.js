@@ -7,9 +7,9 @@ import api from '../../services/api'
 import { Form, Container } from './styles'
 
 export default function SignIn(props) {
-  const [name, setName] = useState([])
-  const [email, setEmail] = useState([])
-  const [password, setPassword] = useState([])
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   const handleSignUp = async e => {
     e.preventDefault()
@@ -56,7 +56,7 @@ export default function SignIn(props) {
         <button type="submit">Criar conta</button>
 
         <hr />
-        <Link to="/signin">Fazer login</Link>
+        <Link to="/">Fazer login</Link>
       </Form>
     </Container>
   )

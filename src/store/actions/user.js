@@ -1,9 +1,9 @@
-export const setCurrentUser = user => ({
-  type: 'SET_CURRENT_USER',
-  payload: { user },
+export const login = () => ({
+  type: 'USER_LOGIN',
+  payload: { isAuth: true },
 })
 
-export const logoutCurrentUser = () => ({
-  type: 'LOGOUT_CURRENT_USER',
-  payload: { user: null },
+export const logout = user => ({
+  type: 'USER_LOGOUT',
+  payload: { isAuth: false },
 })
