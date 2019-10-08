@@ -10,7 +10,7 @@ export default function Reader(props) {
 
   useEffect(() => {
     async function getPage() {
-      const { data } = await api.get(`/webparser/${id}`)
+      const { data } = await api.get(`/pages/${id}`)
 
       setPage(data)
     }

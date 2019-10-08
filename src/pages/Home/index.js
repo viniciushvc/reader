@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { toast } from 'react-toastify'
 
+import { Searchbar } from './styles'
+
 import { Input, Card } from '../../components'
 
 import api from '../../services/api'
@@ -11,7 +13,7 @@ export default function Home() {
 
   useEffect(() => {
     async function getPages() {
-      const { data } = await api.get('/webparser')
+      const { data } = await api.get('/pages')
 
       setPages(data)
     }
@@ -22,7 +24,7 @@ export default function Home() {
   const handleSubmit = async e => {
     e.preventDefault()
     try {
-      const res = await api.post('/webparser', { url })
+      const res = await api.post('/pages', { url })
 
       if (res.status === 200) {
         toast.success(res.data.message)
@@ -36,14 +38,14 @@ export default function Home() {
 
   return (
     <div className="container">
-      <form onSubmit={handleSubmit}>
+      <Searchbar onSubmit={handleSubmit}>
         <Input
           type="text"
           className="form-control"
-          placeholder="Link do Feed"
+          placeholder="Save URL"
           onChange={e => setUrl(e.target.value)}
         />
-      </form>
+      </Searchbar>
 
       <Card list={pages} />
     </div>
