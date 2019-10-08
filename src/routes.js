@@ -3,18 +3,11 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import GlobalStyles from './styles/global'
 import { ToastContainer } from 'react-toastify'
 import { Provider } from 'react-redux'
-import { loadStatem, saveState, loadState } from './localstorage'
 import store from './store'
 import './styles/toast.css'
 import LazyImport from './components/LazyImport'
 import { isAuthenticated } from './services/auth'
 import Header from './components/Header'
-
-const persistedState = loadState()
-
-store.subscribe(() => {
-  saveState(store.getState())
-})
 
 // pages
 const Home = LazyImport(() => import('./pages/Home'))
