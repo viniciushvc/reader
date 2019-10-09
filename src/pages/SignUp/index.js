@@ -4,6 +4,8 @@ import { toast } from 'react-toastify'
 
 import api from '../../services/api'
 
+import { Input, Button } from '../../components'
+
 import { Form, Container } from './styles'
 
 export default function SignIn(props) {
@@ -34,26 +36,30 @@ export default function SignIn(props) {
   return (
     <Container>
       <Form onSubmit={handleSignUp}>
-        <input
+        <Input
           type="text"
           placeholder="Nome de usuário"
           value={name}
           onChange={e => setName(e.target.value)}
         />
-        <input
+        <Input
           type="email"
           placeholder="Endereço de e-mail"
           value={email}
           onChange={e => setEmail(e.target.value)}
         />
-        <input
+        <Input
           type="password"
           placeholder="Senha"
           value={password}
           onChange={e => setPassword(e.target.value)}
         />
 
-        <button type="submit">Criar conta</button>
+        <Button
+          type="submit"
+          className="block lg bold"
+          text="Criar conta"
+        ></Button>
 
         <hr />
         <Link to="/">Fazer login</Link>

@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
+import { background, color } from './theme'
+
 const GlobalStyles = createGlobalStyle`
 
 html {
@@ -18,8 +20,8 @@ html {
 
 body,
 html {
-  background-color: #eee;
-  color: #333;
+  background-color: ${background};
+  color: ${color};
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   height: 100%;
   width: 100%;

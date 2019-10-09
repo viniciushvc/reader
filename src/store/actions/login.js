@@ -3,7 +3,7 @@ export const login = () => ({
   payload: { isAuth: true },
 })
 
-export const logout = user => ({
+export const logout = () => ({
   type: 'USER_LOGOUT',
   payload: { isAuth: false },
 })

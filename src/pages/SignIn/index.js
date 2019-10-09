@@ -6,6 +6,8 @@ import { useDispatch } from 'react-redux'
 import api from '../../services/api'
 import { login } from '../../services/auth'
 
+import { Input, Button } from '../../components'
+
 import { Form, Container } from './styles'
 
 export default function SignIn(props) {
@@ -39,20 +41,20 @@ export default function SignIn(props) {
   return (
     <Container>
       <Form onSubmit={handleSignIn}>
-        <input
+        <Input
           type="email"
           placeholder="Endereço de e-mail"
           value={email}
           onChange={e => setEmail(e.target.value)}
         />
-        <input
+        <Input
           type="password"
           placeholder="Senha"
           value={password}
           onChange={e => setPassword(e.target.value)}
         />
 
-        <button type="submit">Acessar conta</button>
+        <Button type="submit" className="block lg bold" text="Acessar conta" />
 
         <hr />
         <Link to="/signup">Criar conta</Link>

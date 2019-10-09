@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { Navbar, List, Item } from './styles'
 
 export default function Header() {
-  const auth = useSelector(state => state.user.isAuth)
+  const auth = useSelector(state => state.login.isAuth)
   const dispatch = useDispatch()
 
   const logout = () => {
