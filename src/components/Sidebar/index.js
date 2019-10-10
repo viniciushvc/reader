@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { FiBookmark, FiRss, FiChevronLeft } from 'react-icons/fi'
+import { FiBookmark, FiRss /*, FiChevronLeft*/ } from 'react-icons/fi'
 
 import { Container, Main, Menu } from './styles'
 

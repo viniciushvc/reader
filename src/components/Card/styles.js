@@ -38,5 +38,15 @@ export const News = styled.div`
       width: 100%;
       object-fit: cover;
     }
+
+    .actions {
+      position: absolute;
+      bottom: 10px;
+      right: 15px;
+
+      svg:hover {
+        color: red;
+      }
+    }
   }
 `
