@@ -41,7 +41,7 @@ export default function Header() {
   return (
     <Navbar>
       <div className="header">
-        <Link to="/app" className="menu-brand">
+        <Link to="/feed" className="menu-brand">
           reader
         </Link>
         <div>{auth ? userLinks : guestLinks}</div>

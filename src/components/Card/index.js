@@ -8,10 +8,9 @@ export default function Card({ onClick, list = [], props }) {
   return (
     <News>
       {list.map(item => (
-        <Link to={`/reader/${item.id}`} key={item.title}>
-          <div className="content">
-            <h1>{item.title}</h1>
-          </div>
+        <Link to={`/reader/${item.id}`} key={item.id}>
+          <img src={item.lead_image_url} alt={item.title} />
+          <h1>{item.title}</h1>
         </Link>
       ))}
     </News>

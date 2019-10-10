@@ -11,8 +11,8 @@ import { Input, Button } from '../../components'
 import { Form, Container } from './styles'
 
 export default function SignIn(props) {
-  const [email, setEmail] = useState([])
-  const [password, setPassword] = useState([])
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   const dispatch = useDispatch()
 
@@ -29,7 +29,7 @@ export default function SignIn(props) {
 
         dispatch({ type: 'USER_LOGIN' })
 
-        props.history.push('/app')
+        props.history.push('/feed')
       } catch (err) {
         const { response } = err
 

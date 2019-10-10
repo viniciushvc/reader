@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { toast } from 'react-toastify'
 
-import { Searchbar } from './styles'
+import { Searchbar, Container } from './styles'
 
-import { Input, Card } from '../../components'
+import { Input, Card, Sidebar } from '../../components'
 
 import api from '../../services/api'
 
@@ -37,17 +37,19 @@ export default function Home() {
   }
 
   return (
-    <div className="container">
-      <Searchbar onSubmit={handleSubmit}>
-        <Input
-          type="text"
-          className="form-control"
-          placeholder="Save URL"
-          onChange={e => setUrl(e.target.value)}
-        />
-      </Searchbar>
+    <Sidebar>
+      <Container>
+        <Searchbar onSubmit={handleSubmit}>
+          <Input
+            type="text"
+            className="form-control"
+            placeholder="Save URL"
+            onChange={e => setUrl(e.target.value)}
+          />
+        </Searchbar>
 
-      <Card list={pages} />
-    </div>
+        <Card list={pages} />
+      </Container>
+    </Sidebar>
   )
 }

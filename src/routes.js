@@ -5,7 +5,8 @@ import Header from './components/Header'
 import LazyImport from './components/LazyImport'
 import PrivateRoute from './components/PrivateRoute'
 
-const Home = LazyImport(() => import('./pages/Home'))
+const Feed = LazyImport(() => import('./pages/Feed'))
+const Bookmark = LazyImport(() => import('./pages/Bookmark'))
 const SignUp = LazyImport(() => import('./pages/SignUp'))
 const SignIn = LazyImport(() => import('./pages/SignIn'))
 const Profile = LazyImport(() => import('./pages/Profile'))
@@ -17,7 +18,8 @@ const Routes = () => {
     <BrowserRouter>
       <Header />
       <Switch>
-        <PrivateRoute exact path="/app" component={Home} />
+        <PrivateRoute exact path="/feed" component={Feed} />
+        <PrivateRoute exact path="/bookmark" component={Bookmark} />
         <PrivateRoute exact path="/profile" component={Profile} />
         <PrivateRoute exact path="/reader/:id" component={Reader} />
         <Route exact path="/signup" component={SignUp} />
