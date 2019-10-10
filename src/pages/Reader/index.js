@@ -22,7 +22,12 @@ export default function Reader(props) {
     <Container>
       <div>
         <h1>{page.title}</h1>
+
         <h2>{page.domain}</h2>
+
+        <a href={page.url} target="_blank" rel="noopener noreferrer">
+          Exibir original
+        </a>
 
         <img src={page.lead_image_url} alt={page.title} />
 
