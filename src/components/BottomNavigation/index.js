@@ -22,14 +22,23 @@ export default function BottomNavigation() {
       {isMobile && (
         <Container>
           <div className="items">
-            <NavLink to="/feed" activeClassName="selected-route">
-              <FiRss size={30} />
+            <NavLink
+              to="/feed"
+              activeClassName="selected-route selected-bottom-navigation"
+            >
+              <FiRss size={20} />
             </NavLink>
-            <NavLink to="/bookmark" activeClassName="selected-route">
-              <FiBookmark size={30} />
+            <NavLink
+              to="/bookmark"
+              activeClassName="selected-route selected-bottom-navigation"
+            >
+              <FiBookmark size={20} />
             </NavLink>
-            <NavLink to="/profile" activeClassName="selected-route">
-              <FiUser size={30} />
+            <NavLink
+              to="/profile"
+              activeClassName="selected-route selected-bottom-navigation"
+            >
+              <FiUser size={20} />
             </NavLink>
           </div>
         </Container>

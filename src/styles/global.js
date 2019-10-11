@@ -38,6 +38,11 @@ html,body
 .selected-route {
   color: #28a745!important;
 }
+
+.selected-bottom-navigation {
+  border-bottom: 1px solid #28a745
+}
+
 `
 
 export default GlobalStyles
