@@ -31,7 +31,7 @@ export default function Reader(props) {
 
         <img src={page.lead_image_url} alt={page.title} />
 
-        <p dangerouslySetInnerHTML={{ __html: page.content }} />
+        <p>{page.content}</p>
       </div>
     </Container>
   )

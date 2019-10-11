@@ -35,5 +35,6 @@ export const Container = styled.div`
     font-size: 1.8rem;
     line-height: 1.5;
     font-family: serif;
+    white-space: pre-line;
   }
 `
