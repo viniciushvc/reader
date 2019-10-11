@@ -3,7 +3,6 @@ import { ThemeProvider } from 'styled-components'
 import { Provider } from 'react-redux'
 import { ToastContainer } from 'react-toastify'
 import useTheme from './useTheme'
-import ToggleMode from './components/UseTheme'
 
 import Routes from './routes'
 import store from './store'
@@ -18,7 +17,6 @@ function App() {
       <Provider store={store}>
         <GlobalStyles />
         <Routes />
-        <ToggleMode />
         <ToastContainer position="bottom-right" />
       </Provider>
     </ThemeProvider>

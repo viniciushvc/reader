@@ -62,7 +62,7 @@ export default function SignIn(props) {
         ></Button>
 
         <hr />
-        <Link to="/">Fazer login</Link>
+        <Link to="/signin">Fazer login</Link>
       </Form>
     </Container>
   )

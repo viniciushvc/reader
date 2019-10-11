@@ -1,14 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import api from '../../services/api'
 import { toast } from 'react-toastify'
-
+import api from '../../services/api'
 import { FiTrash2 } from 'react-icons/fi'
-
 import { News } from './styles.js'
 
-export default function Card({ list = [] }) {
+export default function Card({ type = 'feed', list = [] }) {
   const handleRemove = async (e, id) => {
     e.preventDefault()
 
@@ -25,7 +23,9 @@ export default function Card({ list = [] }) {
           <h1>{item.title}</h1>
 
           <div className="actions">
-            <FiTrash2 onClick={e => handleRemove(e, item.id)} />
+            {type === 'bookmark' && (
+              <FiTrash2 onClick={e => handleRemove(e, item.id)} />
+            )}
           </div>
         </Link>
       ))}
@@ -35,4 +35,5 @@ export default function Card({ list = [] }) {
 
 Card.propTypes = {
   list: PropTypes.array,
+  type: PropTypes.string,
 }

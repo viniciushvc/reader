@@ -4,7 +4,7 @@ import { FiMoon, FiSun } from 'react-icons/fi'
 
 import { Toggle } from './styles'
 
-export default function ToggleMode() {
+export default function UseTheme() {
   const dark = (
     <span>
       <FiSun size="20px" />

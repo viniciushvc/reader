@@ -14,8 +14,8 @@ export const News = styled.div`
     height: 350px;
     margin: 0 0.5rem 1rem 0.5rem;
     position: relative;
-    max-width: 450px;
-    flex: 1 1 350px;
+    max-width: 500px;
+    flex: 1 1 250px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: 0.3s;
     cursor: pointer;

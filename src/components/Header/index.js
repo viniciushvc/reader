@@ -1,27 +1,16 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-
 import { Navbar, List, Item } from './styles'
 
 export default function Header() {
   const auth = useSelector(state => state.login.isAuth)
-  const dispatch = useDispatch()
-
-  const logout = () => {
-    dispatch({ type: 'USER_LOGOUT' })
-  }
 
   const userLinks = (
     <ul>
       <Item>
         <Link to="/profile" className="menu-user">
-          Perfil
-        </Link>
-      </Item>
-      <Item>
-        <Link to="/" onClick={logout}>
-          Sair
+          username
         </Link>
       </Item>
     </ul>
@@ -40,11 +29,11 @@ export default function Header() {
 
   return (
     <Navbar>
-      <div className="header">
+      <div>
         <Link to="/feed" className="menu-brand">
           reader
         </Link>
-        <div>{auth ? userLinks : guestLinks}</div>
+        {auth ? userLinks : guestLinks}
       </div>
     </Navbar>
   )

@@ -34,6 +34,10 @@ html,body
   max-width: 1366px !important;
   margin: auto;
 }
+
+.selected-route {
+  color: #28a745!important;
+}
 `
 
 export default GlobalStyles

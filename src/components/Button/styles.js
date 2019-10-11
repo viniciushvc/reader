@@ -27,16 +27,45 @@ export const Btn = styled.button`
   }
 
   &.lg {
-    font-weight: 700;
-  }
-
-  &.bold {
     padding: 0.7rem 1rem;
     font-size: 1rem;
     line-height: 1.5;
   }
 
+  &.bold {
+    font-weight: 700;
+  }
+
   &.round {
     border-radius: 30px;
+  }
+
+  &.blue {
+    background-color: #007bff;
+  }
+
+  &.grey {
+    background-color: #6c757d;
+  }
+
+  &.green {
+    background-color: #28a745;
+  }
+
+  &.red {
+    background-color: #dc3545;
+  }
+
+  &.yellow {
+    background-color: #ffc107;
+    color: #333;
+  }
+
+  &.light {
+    background-color: #f8f8f8;
+  }
+
+  &.dark {
+    background-color: #343a40;
   }
 `

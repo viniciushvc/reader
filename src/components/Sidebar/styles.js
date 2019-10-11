@@ -3,27 +3,33 @@ import { card, color, background } from '../../styles/theme'
 
 export const Container = styled.div`
   display: flex;
-  height: 100%;
+  height: 100vh;
 `
 
-export const Menu = styled.div`
-  position: sticky;
+export const Nav = styled.nav`
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 400px;
+  width: ${props => (props.show ? '300px' : '70px')};
   background-color: ${card};
   color: ${color};
+  transition: 0.3s;
 
   ul {
     list-style: none;
     width: 100%;
 
-    a {
+    strong {
+      font-weight: 500;
+    }
+
+    a,
+    strong {
       padding: 20px;
       display: flex;
       align-items: center;
-      font-size: 20px;
+      font-size: ${props => (props.show ? '20px' : '0px')};
       text-decoration: none;
       color: ${color};
 
@@ -33,6 +39,7 @@ export const Menu = styled.div`
       }
 
       svg {
+        font-size: 20px;
         margin-right: 10px;
       }
     }
@@ -40,5 +47,6 @@ export const Menu = styled.div`
 `
 
 export const Main = styled.div`
-  width: 100%;
+  flex: 1 1 auto;
+  overflow: auto;
 `

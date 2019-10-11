@@ -3,15 +3,15 @@ import { card, color } from '../../styles/theme'
 
 export const Navbar = styled.header`
   background-color: ${card};
+  padding: 10px;
   width: 100%;
-  padding: 1.5rem;
 
-  .header {
-    max-width: 1366px;
-    margin: auto;
+  div {
     display: flex;
-    align-items: center;
+    max-width: 1366px;
     justify-content: space-between;
+    align-items: center;
+    margin: auto;
   }
 
   a {
@@ -29,6 +29,7 @@ export const Item = styled.li`
   font-weight: 500;
   margin-left: 1rem;
   display: inline-block;
+  padding: 10px;
 
   a {
     font-size: 0.9rem;

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { toast } from 'react-toastify'
 
+import { Sidebar } from '../../components'
+
 import { Searchbar, Container } from './styles'
 
-import { Input, Card, Sidebar } from '../../components'
+import { Input, Card } from '../../components'
 
 import api from '../../services/api'
 
@@ -48,7 +50,7 @@ export default function Home() {
           />
         </Searchbar>
 
-        <Card list={pages} />
+        <Card list={pages} type="bookmark" />
       </Container>
     </Sidebar>
   )
