@@ -14,7 +14,7 @@ export const Container = styled.nav`
     background-color: ${card};
 
     a {
-      padding: 10px;
+      padding: 15px;
       display: flex;
       width: 100%;
       justify-content: center;

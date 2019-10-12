@@ -55,11 +55,9 @@ export default function SignIn(props) {
           onChange={e => setPassword(e.target.value)}
         />
 
-        <Button
-          type="submit"
-          className="block lg bold"
-          text="Criar conta"
-        ></Button>
+        <Button type="submit" className="block lg bold green">
+          Criar conta
+        </Button>
 
         <hr />
         <Link to="/signin">Fazer login</Link>

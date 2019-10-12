@@ -3,16 +3,16 @@ import PropTypes from 'prop-types'
 
 import { Btn } from './styles'
 
-const Button = ({ text, className, type }) => (
+const Button = ({ children, className, type }) => (
   <Btn type={type} className={className}>
-    {text}
+    {children}
   </Btn>
 )
 
 Button.propTypes = {
   type: PropTypes.string.isRequired,
   className: PropTypes.string,
-  text: PropTypes.string.isRequired,
+  children: PropTypes.string,
 }
 
 export default Button

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import api from '../../services/api'
+
+import { FiPower, FiUser } from 'react-icons/fi'
 
 import { Container, Title, Label, Items, Content, Tab } from './styles'
 
@@ -47,19 +50,21 @@ export default function Profile() {
     <Sidebar>
       <UseTheme />
       <Container>
-        <Title>Perfil</Title>
-
         <Tab>
           <Items>
-            <Button
-              type="submit"
-              text="Sair do reader"
-              className="lg bold red"
-              onClick={logout}
-            ></Button>
+            <Link className="dark" to="/profile">
+              <p>Perfil</p>
+              <FiUser />
+            </Link>
+            <Link className="red" to="/" onClick={logout}>
+              <p>Sair</p>
+              <FiPower />
+            </Link>
           </Items>
 
           <Content>
+            <Title>Perfil</Title>
+
             <Form onSubmit={handleSubmit}>
               <Label htmlFor="name">Nome completo</Label>
               <Input
@@ -69,7 +74,9 @@ export default function Profile() {
                 onChange={e => setName(e.target.value)}
               />
 
-              <Button type="submit" className="lg bold green" text="Salvar" />
+              <Button type="submit" className="lg bold green" text="Salvar">
+                Salvar
+              </Button>
             </Form>
           </Content>
         </Tab>

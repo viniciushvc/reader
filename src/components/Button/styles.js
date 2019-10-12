@@ -3,11 +3,12 @@ import styled from 'styled-components'
 import { background, color } from '../../styles/theme'
 
 export const Btn = styled.button`
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-weight: 400;
   background-color: ${color};
-  color: ${background};
-  text-align: center;
+  color: #fff;
   vertical-align: middle;
   user-select: none;
   border-radius: 5px;
@@ -16,6 +17,10 @@ export const Btn = styled.button`
   cursor: pointer;
   font-family: inherit;
   transition: 0.3s;
+
+  svg {
+    margin-left: 10px;
+  }
 
   &:hover {
     box-shadow: inset 0 0 0 99999px rgba(255, 255, 255, 0.1);

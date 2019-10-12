@@ -22,7 +22,7 @@ export default function Header() {
         <Link to="/signup">Criar conta</Link>
       </Item>
       <Item>
-        <Link to="/">Acessar conta</Link>
+        <Link to="/signin">Acessar conta</Link>
       </Item>
     </List>
   )
