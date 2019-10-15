@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { toast } from 'react-toastify'
 import { useDispatch } from 'react-redux'
-
-import api from '../../services/api'
-import { login } from '../../services/auth'
+import { userLogin } from '../../store/actions/login'
 
 import { Input, Button } from '../../components'
 
@@ -19,23 +16,7 @@ export default function SignIn(props) {
   const handleSignIn = async e => {
     e.preventDefault()
 
-    if (!email || !password) {
-      toast.error('Preencha e-mail e senha para continuar!')
-    } else {
-      try {
-        const response = await api.post('/sessions', { email, password })
-
-        login(response.data.token)
-
-        dispatch({ type: 'USER_LOGIN' })
-
-        props.history.push('/feed')
-      } catch (err) {
-        const { response } = err
-
-        if (response) toast.error(response.data.error)
-      }
-    }
+    dispatch(userLogin(email, password))
   }
 
   return (

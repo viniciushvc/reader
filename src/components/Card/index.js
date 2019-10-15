@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import api from '../../services/api'
 import { FiTrash2 } from 'react-icons/fi'
-import { News } from './styles.js'
+import { News } from './styles'
 
 export default function Card({ type = 'feed', list = [] }) {
   const handleRemove = async (e, id) => {

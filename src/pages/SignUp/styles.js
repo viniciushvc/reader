@@ -1,17 +1,22 @@
 import styled from 'styled-components'
-import { card, background, border, color } from '../../styles/theme'
+import {
+  secondaryBackground,
+  primaryBackground,
+  primaryBorder,
+  primaryColor,
+} from '../../styles/theme'
 
 export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   height: calc(100vh - 72px);
-  background-color: ${background};
+  background-color: ${primaryBackground};
 `
 
 export const Form = styled.form`
   width: 400px;
-  background: ${card};
+  background: ${secondaryBackground};
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -20,13 +25,13 @@ export const Form = styled.form`
   hr {
     margin: 20px 0;
     border: none;
-    border-bottom: 1px solid ${border};
+    border-bottom: 1px solid ${primaryBorder};
     width: 100%;
   }
   a {
     font-size: 16;
     font-weight: bold;
-    color: ${color};
+    color: ${primaryColor};
     text-decoration: none;
   }
 `

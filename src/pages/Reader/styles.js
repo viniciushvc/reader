@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { color } from '../../styles/theme'
+import { primaryColor } from '../../styles/theme'
 
 export const Container = styled.div`
   display: flex;
@@ -28,7 +28,7 @@ export const Container = styled.div`
     text-decoration: none;
     text-align: center;
     display: block;
-    color: ${color};
+    color: ${primaryColor};
   }
 
   p {

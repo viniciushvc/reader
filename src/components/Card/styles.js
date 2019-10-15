@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { card, color } from '../../styles/theme'
+import { secondaryBackground, primaryColor } from '../../styles/theme'
 
 export const News = styled.div`
   margin-top: 20px;
@@ -9,7 +9,7 @@ export const News = styled.div`
 
   a {
     border-radius: 2px;
-    background-color: ${card};
+    background-color: ${secondaryBackground};
     display: inline-block;
     height: 350px;
     margin: 0 0.5rem 1rem 0.5rem;
@@ -20,7 +20,7 @@ export const News = styled.div`
     transition: 0.3s;
     cursor: pointer;
     text-decoration: none;
-    color: ${color};
+    color: ${primaryColor};
 
     &:hover {
       transform: translateY(-5px);

@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { color, background } from '../../styles/theme'
+import { primaryColor, primaryBackground } from '../../styles/theme'
 
 export const Toggle = styled.div`
-  background-color: ${color};
+  background-color: ${primaryColor};
   position: fixed;
   border-radius: 50px;
   right: 20px;
@@ -16,6 +16,6 @@ export const Toggle = styled.div`
   span {
     position: relative;
     top: calc(50% - 10px);
-    color: ${background};
+    color: ${primaryBackground};
   }
 `

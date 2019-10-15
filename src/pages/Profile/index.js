@@ -3,20 +3,20 @@ import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import api from '../../services/api'
+import { userLogout } from '../../store/actions/login'
 
 import { FiPower, FiUser } from 'react-icons/fi'
 
 import { Container, Title, Label, Items, Content, Tab } from './styles'
 
-import { Form, Input, Button, UseTheme, Sidebar } from '../../components'
+import { Form, Input, Button, UseTheme } from '../../components'
 
 export default function Profile() {
   const [name, setName] = useState('')
-
   const dispatch = useDispatch()
 
   const logout = () => {
-    dispatch({ type: 'USER_LOGOUT' })
+    dispatch(userLogout())
   }
 
   useEffect(() => {
@@ -47,7 +47,7 @@ export default function Profile() {
   }
 
   return (
-    <Sidebar>
+    <>
       <UseTheme />
       <Container>
         <Tab>
@@ -81,6 +81,6 @@ export default function Profile() {
           </Content>
         </Tab>
       </Container>
-    </Sidebar>
+    </>
   )
 }

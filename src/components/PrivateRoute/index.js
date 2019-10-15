@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { Sidebar } from '../../components'
 
 function PrivateRoute({ component: Component, ...rest }) {
   const auth = useSelector(state => state.login.isAuth)
@@ -10,7 +11,9 @@ function PrivateRoute({ component: Component, ...rest }) {
       {...rest}
       render={props =>
         auth ? (
-          <Component {...props} />
+          <Sidebar>
+            <Component {...props} />
+          </Sidebar>
         ) : (
           <Redirect to={{ pathname: '/', state: { from: props.location } }} />
         )

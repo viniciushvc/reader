@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-import { background, color } from './theme'
+import { primaryBackground, primaryColor } from './theme'
 
 const GlobalStyles = createGlobalStyle`
 
@@ -20,19 +20,14 @@ html {
 
 html,body
  {
-  background-color: ${background};
-  color: ${color};
+  background-color: ${primaryBackground};
+  color: ${primaryColor};
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   height: 100%;
 }
 
 #root {
   height: 100%;
-}
-
-.container {
-  max-width: 1366px !important;
-  margin: auto;
 }
 
 .selected-route {
@@ -42,7 +37,6 @@ html,body
 .selected-bottom-navigation {
   border-bottom: 1px solid #28a745
 }
-
 `
 
 export default GlobalStyles

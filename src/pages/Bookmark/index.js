@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { toast } from 'react-toastify'
 
-import { Sidebar } from '../../components'
-
 import { Searchbar, Container } from './styles'
 
 import { Input, Card } from '../../components'
 
 import api from '../../services/api'
 
-export default function Home() {
+export default function Bookmark() {
   const [url, setUrl] = useState()
   const [pages, setPages] = useState()
 
@@ -39,19 +37,17 @@ export default function Home() {
   }
 
   return (
-    <Sidebar>
-      <Container>
-        <Searchbar onSubmit={handleSubmit}>
-          <Input
-            type="text"
-            className="form-control"
-            placeholder="Save URL"
-            onChange={e => setUrl(e.target.value)}
-          />
-        </Searchbar>
+    <Container>
+      <Searchbar onSubmit={handleSubmit}>
+        <Input
+          type="text"
+          className="form-control"
+          placeholder="Save URL"
+          onChange={e => setUrl(e.target.value)}
+        />
+      </Searchbar>
 
-        <Card list={pages} type="bookmark" />
-      </Container>
-    </Sidebar>
+      <Card list={pages} type="bookmark" />
+    </Container>
   )
 }

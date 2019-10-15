@@ -1,17 +1,18 @@
 import styled from 'styled-components'
 
-import { background, color } from '../../styles/theme'
+import { primaryBackground } from '../../styles/theme'
+import { color } from '../../styles/_variables'
 
 export const Btn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: 400;
-  background-color: ${color};
+  background-color: ${primaryBackground};
   color: #fff;
   vertical-align: middle;
   user-select: none;
-  border-radius: 5px;
+  border-radius: 2px;
   border: 1px solid transparent;
   padding: 0.375rem 0.75rem;
   cursor: pointer;
@@ -46,31 +47,31 @@ export const Btn = styled.button`
   }
 
   &.blue {
-    background-color: #007bff;
+    background-color: ${color.blue};
   }
 
   &.grey {
-    background-color: #6c757d;
+    background-color: ${color.grey};
   }
 
   &.green {
-    background-color: #28a745;
+    background-color: ${color.green};
   }
 
   &.red {
-    background-color: #dc3545;
+    background-color: ${color.red};
   }
 
   &.yellow {
-    background-color: #ffc107;
-    color: #333;
+    background-color: ${color.yellow};
+    color: ${color.dark};
   }
 
   &.light {
-    background-color: #f8f8f8;
+    background-color: ${color.light};
   }
 
   &.dark {
-    background-color: #343a40;
+    background-color: ${color.dark};
   }
 `

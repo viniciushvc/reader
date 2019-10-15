@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { card, color } from '../../styles/theme'
+import { secondaryBackground, primaryColor } from '../../styles/theme'
 
 export const Navbar = styled.header`
-  background-color: ${card};
+  background-color: ${secondaryBackground};
   padding: 10px;
   width: 100%;
 
@@ -15,7 +15,7 @@ export const Navbar = styled.header`
   }
 
   a {
-    color: ${color};
+    color: ${primaryColor};
     text-decoration: none;
     font-size: 1.3rem;
     font-weight: 700;

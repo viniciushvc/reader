@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { card, color } from '../../styles/theme'
+import { secondaryBackground, primaryColor } from '../../styles/theme'
 
 export const Container = styled.nav`
   position: fixed;
@@ -11,14 +11,14 @@ export const Container = styled.nav`
   .items {
     display: flex;
     justify-content: space-between;
-    background-color: ${card};
+    background-color: ${secondaryBackground};
 
     a {
       padding: 15px;
       display: flex;
       width: 100%;
       justify-content: center;
-      color: ${color};
+      color: ${primaryColor};
     }
   }
 `

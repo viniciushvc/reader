@@ -1,5 +1,9 @@
 import styled from 'styled-components'
-import { card, color, background } from '../../styles/theme'
+import {
+  secondaryBackground,
+  primaryColor,
+  primaryBackground,
+} from '../../styles/theme'
 
 export const Container = styled.div`
   display: flex;
@@ -12,8 +16,8 @@ export const Nav = styled.nav`
   flex-direction: column;
   justify-content: space-between;
   width: ${props => (props.show ? '300px' : '70px')};
-  background-color: ${card};
-  color: ${color};
+  background-color: ${secondaryBackground};
+  color: ${primaryColor};
   transition: 0.3s;
 
   ul {
@@ -31,11 +35,11 @@ export const Nav = styled.nav`
       align-items: center;
       font-size: ${props => (props.show ? '20px' : '0px')};
       text-decoration: none;
-      color: ${color};
+      color: ${primaryColor};
 
       &:hover {
         color: red;
-        background-color: ${background};
+        background-color: ${primaryBackground};
       }
 
       svg {
