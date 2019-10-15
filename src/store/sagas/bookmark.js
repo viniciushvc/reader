@@ -1,7 +1,7 @@
 import { all, put, takeLatest } from 'redux-saga/effects'
 import { toast } from 'react-toastify'
 
-import { Login } from '../types'
+import { Bookmark } from '../types'
 import { userLoginSuccess, userLoginFailure } from '../actions/login'
 
 import { history } from '../../utils'
@@ -34,5 +34,5 @@ export function* userLogin(action) {
 }
 
 export default function* loginSagas() {
-  yield all([yield takeLatest(Login.USER_LOGIN, userLogin)])
+  yield all([yield takeLatest(Bookmark.GET_BOOKMARK, userLogin)])
 }

@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { toast } from 'react-toastify'
 
-import { Searchbar, Container } from './styles'
+import { Container, Title, Cards } from './styles'
 
-import { Input, Card } from '../../components'
+import { Card, UserNavbar } from '../../components'
 
 import api from '../../services/api'
 
 export default function Bookmark() {
-  const [url, setUrl] = useState()
-  const [pages, setPages] = useState()
+  const [pages, setPages] = useState([])
 
   useEffect(() => {
     async function getPages() {
@@ -19,35 +17,42 @@ export default function Bookmark() {
     }
 
     getPages()
-  }, [url])
+  }, [])
 
-  const handleSubmit = async e => {
-    e.preventDefault()
-    try {
-      const res = await api.post('/pages', { url })
+  // const handleSubmit = async e => {
+  //   e.preventDefault()
+  //   try {
+  //     const res = await api.post('/pages', { url })
 
-      if (res.status === 200) {
-        toast.success(res.data.message)
-      }
-    } catch (err) {
-      const { response } = err
+  //     if (res.status === 200) {
+  //       toast.success(res.data.message)
+  //     }
+  //   } catch (err) {
+  //     const { response } = err
 
-      if (response) toast.error(response.data.error)
-    }
-  }
+  //     if (response) toast.error(response.data.error)
+  //   }
+  // }
 
   return (
-    <Container>
-      <Searchbar onSubmit={handleSubmit}>
-        <Input
-          type="text"
-          className="form-control"
-          placeholder="Save URL"
-          onChange={e => setUrl(e.target.value)}
-        />
-      </Searchbar>
+    <>
+      <UserNavbar />
 
-      <Card list={pages} type="bookmark" />
-    </Container>
+      <Container>
+        <Title>Favoritos</Title>
+
+        <Cards>
+          {pages.map(page => (
+            <Card
+              id={page.id}
+              key={page.id}
+              title={page.title}
+              image={page.lead_image_url}
+              type="bookmark"
+            />
+          ))}
+        </Cards>
+      </Container>
+    </>
   )
 }

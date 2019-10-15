@@ -3,22 +3,30 @@ import { secondaryBackground, primaryColor } from '../../styles/theme'
 
 export const Navbar = styled.header`
   background-color: ${secondaryBackground};
-  padding: 10px;
   width: 100%;
 
   div {
+    padding: 10px 30px;
     display: flex;
-    max-width: 1366px;
     justify-content: space-between;
     align-items: center;
-    margin: auto;
   }
 
   a {
+    display: flex;
+    align-items: center;
     color: ${primaryColor};
     text-decoration: none;
     font-size: 1.3rem;
     font-weight: 700;
+
+    p {
+      margin-bottom: 5px;
+    }
+
+    svg {
+      margin-right: 15px;
+    }
   }
 `
 

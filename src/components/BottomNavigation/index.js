@@ -2,16 +2,16 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { FiBookmark, FiRss, FiUser } from 'react-icons/fi'
-import { getWidthScreen } from '../../utils'
+import { getIsMobileScreen } from '../../utils'
 
 import { Container } from './styles'
 
 export default function BottomNavigation() {
-  const [isMobile, setIsMobile] = useState(getWidthScreen)
+  const [isMobile, setIsMobile] = useState(getIsMobileScreen)
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(getWidthScreen)
+      setIsMobile(getIsMobileScreen)
     }
 
     window.addEventListener('resize', handleResize)

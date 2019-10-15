@@ -1,6 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { FiBookOpen } from 'react-icons/fi'
+
 import { Navbar, List, Item } from './styles'
 
 export default function Header() {
@@ -31,7 +33,8 @@ export default function Header() {
     <Navbar>
       <div>
         <Link to="/feed" className="menu-brand">
-          reader
+          <FiBookOpen size="25" color="#249440" />
+          <p>reader</p>
         </Link>
         {auth ? userLinks : guestLinks}
       </div>

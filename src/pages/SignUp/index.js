@@ -1,41 +1,29 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { toast } from 'react-toastify'
+import { useDispatch } from 'react-redux'
 
-import api from '../../services/api'
+import { createNewUser } from '../../store/actions/user'
 
 import { Input, Button } from '../../components'
 
 import { Form, Container } from './styles'
 
-export default function SignIn(props) {
+export default function SignIn() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleSignUp = async e => {
+  const dispatch = useDispatch()
+
+  const handleSubmit = async e => {
     e.preventDefault()
 
-    if (!name || !email || !password) {
-      toast.error('Preencha todos os dados para se cadastrar')
-    } else {
-      try {
-        const response = await api.post('/users', { name, email, password })
-
-        toast.success(response.data.message)
-
-        props.history.push('/')
-      } catch (err) {
-        const { response } = err
-
-        if (response) toast.error(response.data.error)
-      }
-    }
+    dispatch(createNewUser(name, email, password))
   }
 
   return (
     <Container>
-      <Form onSubmit={handleSignUp}>
+      <Form onSubmit={handleSubmit}>
         <Input
           type="text"
           placeholder="Nome de usuário"

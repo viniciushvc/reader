@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
-import { getSidebar } from '../../utils'
-
 import { FiBookmark, FiRss, FiMenu, FiUser } from 'react-icons/fi'
+
+import { getSidebar } from '../../utils'
 
 import { Container, Main, Nav } from './styles'
 

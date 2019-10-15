@@ -5,7 +5,6 @@ import { history } from './utils'
 
 import LazyImport from './components/LazyImport'
 import PrivateRoute from './components/PrivateRoute'
-import BottomNavigation from './components/BottomNavigation'
 
 const Home = LazyImport(() => import('./pages/Home'))
 const Feed = LazyImport(() => import('./pages/Feed'))
@@ -20,7 +19,6 @@ const Routes = () => {
   return (
     <BrowserRouter>
       <Router history={history}>
-        <BottomNavigation />
         <Switch>
           <PrivateRoute exact path="/feed" component={Feed} />
           <PrivateRoute exact path="/bookmark" component={Bookmark} />

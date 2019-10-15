@@ -28,8 +28,9 @@ export const Form = styled.form`
     border-bottom: 1px solid ${primaryBorder};
     width: 100%;
   }
+
   a {
-    font-size: 16;
+    font-size: 16px;
     font-weight: bold;
     color: ${primaryColor};
     text-decoration: none;
