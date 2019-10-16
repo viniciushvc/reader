@@ -5,7 +5,7 @@ import { FiBookOpen, FiSearch, FiPlusCircle } from 'react-icons/fi'
 import { Container } from './styles'
 
 export default function UserNavbar() {
-  const [search, setSearch] = useState()
+  const [, setSearch] = useState()
 
   return (
     <Container>
