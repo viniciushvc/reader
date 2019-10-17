@@ -5,7 +5,7 @@ export const Container = styled.nav`
   display: flex;
   align-items: center;
   background-color: ${secondaryBackground};
-  padding: 10px 40px;
+  padding: 10px;
   width: 100%;
 
   .search {
@@ -18,7 +18,7 @@ export const Container = styled.nav`
     margin-left: 30px;
 
     svg {
-      margin-left: 15px;
+      margin-left: 10px;
     }
 
     input {

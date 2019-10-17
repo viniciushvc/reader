@@ -1,39 +1,30 @@
 import { Login } from '../types'
 
-export const userLogin = (email, password) => {
-  return {
-    type: Login.USER_LOGIN,
-    payload: {
-      email,
-      password,
-    },
-  }
+const LoginActions = {
+  login: (email, password) => ({
+    type: Login.LOGIN,
+    payload: { email, password },
+  }),
+  loginSuccess: () => ({
+    type: Login.LOGIN_SUCCESS,
+    payload: null,
+  }),
+  loginFailure: () => ({
+    type: Login.LOGIN_FAILURE,
+    payload: null,
+  }),
+  logout: () => ({
+    type: Login.LOGOUT,
+    payload: null,
+  }),
+  get: user => ({
+    type: Login.GET,
+    payload: { user },
+  }),
+  requestGet: () => ({
+    type: Login.REQUEST_GET,
+    payload: null,
+  }),
 }
 
-export const userLoginSuccess = userName => {
-  return {
-    type: Login.USER_LOGIN_SUCCESS,
-    payload: {
-      isAuth: true,
-      userName,
-    },
-  }
-}
-
-export const userLoginFailure = () => {
-  return {
-    type: Login.USER_LOGIN_FAILURE,
-    payload: {
-      isAuth: false,
-    },
-  }
-}
-
-export const userLogout = () => {
-  return {
-    type: Login.USER_LOGOUT,
-    payload: {
-      isAuth: false,
-    },
-  }
-}
+export default LoginActions

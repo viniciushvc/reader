@@ -11,3 +11,9 @@ export const createNewUser = (name, email, password) => {
     },
   }
 }
+
+export const getUserInfo = () => {
+  return {
+    type: User.USER_GET,
+  }
+}

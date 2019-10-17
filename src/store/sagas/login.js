@@ -1,38 +1,38 @@
-import { all, put, takeLatest } from 'redux-saga/effects'
+import { all, put, takeLatest, delay } from 'redux-saga/effects'
 import { toast } from 'react-toastify'
 
 import { Login } from '../types'
-import { userLoginSuccess, userLoginFailure } from '../actions/login'
+import loginActions from '../actions/login'
 
 import { history } from '../../utils'
 
 import api from '../../services/api'
 import { login } from '../../services/auth'
 
-export function* userLogin(action) {
+export function* loginSagas(action) {
+  yield delay(100)
+
   const { email, password } = action.payload
 
   if (!email || !password) {
     toast.error('Preencha e-mail e senha para continuar!')
   } else {
     try {
-      const response = yield api.post('/sessions', { email, password })
+      const { data } = yield api.post('/sessions', { email, password })
 
-      login(response.data.token)
+      login(data.token)
 
-      yield put(userLoginSuccess(response.data.name))
+      yield put(loginActions.loginSuccess(data.user.name))
 
       history.push('/feed')
     } catch (err) {
-      const { response } = err
+      toast.error(err.response.data.error)
 
-      if (response) toast.error(response.data.error)
-
-      yield put(userLoginFailure(response.data.name))
+      yield put(loginActions.loginFailure())
     }
   }
 }
 
-export default function* loginSagas() {
-  yield all([yield takeLatest(Login.USER_LOGIN, userLogin)])
+export default function* userLogin() {
+  yield all([yield takeLatest(Login.LOGIN, loginSagas)])
 }

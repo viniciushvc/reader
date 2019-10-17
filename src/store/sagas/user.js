@@ -1,4 +1,4 @@
-import { all, takeLatest } from 'redux-saga/effects'
+import { all, takeLatest, delay } from 'redux-saga/effects'
 import { toast } from 'react-toastify'
 
 import { history } from '../../utils'
@@ -7,6 +7,8 @@ import { User } from '../types'
 import api from '../../services/api'
 
 export function* createNewUser(action) {
+  yield delay(500)
+
   const { name, email, password } = action.payload
 
   if (!name || !email || !password) {
@@ -26,6 +28,6 @@ export function* createNewUser(action) {
   }
 }
 
-export default function* loginSagas() {
+export default function* createUserSagas() {
   yield all([yield takeLatest(User.CREATE_NEW_USER, createNewUser)])
 }

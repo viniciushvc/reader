@@ -1,86 +1,47 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { toast } from 'react-toastify'
-import api from '../../services/api'
-import { userLogout } from '../../store/actions/login'
+import { Link, Route } from 'react-router-dom'
+import loginActions from '../../store/actions/login'
+
+import Info from './Info'
+import Layout from './Layout'
 
 import { FiPower, FiUser } from 'react-icons/fi'
 
-import { Container, Title, Label, Items, Content, Tab } from './styles'
-
-import { Form, Input, Button, UseTheme } from '../../components'
+import { Container, Items, Tab, Content } from './styles'
 
 export default function Profile() {
-  const [name, setName] = useState('')
   const dispatch = useDispatch()
 
   const logout = () => {
-    dispatch(userLogout())
-  }
-
-  useEffect(() => {
-    async function getUser() {
-      const { data } = await api.get('/users')
-
-      if (data) setName(data.name)
-    }
-
-    getUser()
-  }, [])
-
-  const handleSubmit = async e => {
-    e.preventDefault()
-
-    if (!name) {
-      toast.error('Preencha todos os campos antes de salvar')
-    }
-    try {
-      const res = await api.put('/users', { name })
-
-      if (res.status === 200) toast.success(res.data.message)
-    } catch (err) {
-      const { res } = err
-
-      if (res) toast.error(res.data.error)
-    }
+    dispatch(loginActions.logout())
   }
 
   return (
-    <>
-      <UseTheme />
-      <Container>
-        <Tab>
-          <Items>
-            <Link className="dark" to="/profile">
-              <p>Perfil</p>
-              <FiUser />
-            </Link>
-            <Link className="red" to="/" onClick={logout}>
-              <p>Sair</p>
-              <FiPower />
-            </Link>
-          </Items>
+    <Container>
+      <Tab>
+        <Items>
+          <Link to="/profile">
+            <p>Perfil</p>
+            <FiUser />
+          </Link>
 
-          <Content>
-            <Title>Perfil</Title>
+          <Link to="/profile/theme">
+            <p>Theme</p>
+            <FiUser />
+          </Link>
 
-            <Form onSubmit={handleSubmit}>
-              <Label htmlFor="name">Nome completo</Label>
-              <Input
-                type="text"
-                id="name"
-                value={name}
-                onChange={e => setName(e.target.value)}
-              />
+          <Link to="/" onClick={logout}>
+            <p>Sair</p>
+            <FiPower />
+          </Link>
+        </Items>
 
-              <Button type="submit" className="lg bold green" text="Salvar">
-                Salvar
-              </Button>
-            </Form>
-          </Content>
-        </Tab>
-      </Container>
-    </>
+        <Content>
+          <Route exact path="/profile" render={Info} />
+          <Route path="/profile/theme" render={Layout} />
+        </Content>
+      </Tab>
+    </Container>
   )
 }

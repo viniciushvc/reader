@@ -9,7 +9,7 @@ export default function Home() {
 
       <h2>Seu novo agregador de notícias favorito.</h2>
 
-      <Link to="signup">Comece a utilizar agora</Link>
+      <Link to="/signin">Comece a utilizar agora</Link>
     </Container>
   )
 }

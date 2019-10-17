@@ -1,38 +1,65 @@
-import { all, put, takeLatest } from 'redux-saga/effects'
-import { toast } from 'react-toastify'
+import { all, takeLatest, put, delay } from 'redux-saga/effects'
+
+import BookmarkActions from '../actions/bookmark'
+import ToastActions from '../actions/toast'
 
 import { Bookmark } from '../types'
-import { userLoginSuccess, userLoginFailure } from '../actions/login'
-
-import { history } from '../../utils'
 
 import api from '../../services/api'
-import { login } from '../../services/auth'
 
-export function* userLogin(action) {
-  const { email, password } = action.payload
+/**
+ * ADD - Page
+ */
+function* addBookmarkSagas(action) {
+  yield delay(200)
 
-  if (!email || !password) {
-    toast.error('Preencha e-mail e senha para continuar!')
-  } else {
-    try {
-      const response = yield api.post('/sessions', { email, password })
+  const { url } = action.payload
 
-      login(response.data.token)
+  try {
+    const { data } = yield api.post('/pages', { url })
 
-      yield put(userLoginSuccess(response.data.name))
+    yield put(BookmarkActions.addSuccess(data.result))
 
-      history.push('/feed')
-    } catch (err) {
-      const { response } = err
-
-      if (response) toast.error(response.data.error)
-
-      yield put(userLoginFailure(response.data.name))
-    }
+    yield put(ToastActions.success(data.message))
+  } catch (err) {
+    yield put(ToastActions.error(err.response.data.error))
   }
 }
 
-export default function* loginSagas() {
-  yield all([yield takeLatest(Bookmark.GET_BOOKMARK, userLogin)])
+export function* addBookmark() {
+  yield all([yield takeLatest(Bookmark.ADD, addBookmarkSagas)])
+}
+
+/**
+ * GET - Pages
+ */
+function* getBookmarkSagas() {
+  try {
+    const { data } = yield api.get('/pages')
+
+    yield put(BookmarkActions.get(data))
+  } catch (err) {
+    yield put(ToastActions.error(err.response.data.error))
+  }
+}
+
+export function* getBookmark() {
+  yield all([yield takeLatest(Bookmark.REQUEST_GET, getBookmarkSagas)])
+}
+
+/**
+ * DELETE - Page
+ */
+function* deleteBookmarkSagas(action) {
+  const { id } = action.payload
+
+  const { data } = yield api.delete('/pages', { data: { id } })
+
+  yield put(BookmarkActions.deleteSuccess(id))
+
+  yield put(ToastActions.success(data.message))
+}
+
+export function* deleteBookmark() {
+  yield all([yield takeLatest(Bookmark.DELETE, deleteBookmarkSagas)])
 }

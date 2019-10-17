@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { userLogin } from '../../store/actions/login'
+import loginActions from '../../store/actions/login'
 
 import { Input, Button } from '../../components'
 
@@ -16,7 +16,7 @@ export default function SignIn() {
   const handleSignIn = async e => {
     e.preventDefault()
 
-    dispatch(userLogin(email, password))
+    dispatch(loginActions.login(email, password))
   }
 
   return (

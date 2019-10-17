@@ -1,38 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 
-import { Container, Title, Cards } from './styles'
+import BookmarkActions from '../../store/actions/bookmark'
 
 import { Card, UserNavbar } from '../../components'
-
-import api from '../../services/api'
+import { Container, Title, Cards } from './styles'
 
 export default function Bookmark() {
-  const [pages, setPages] = useState([])
+  const pages = useSelector(state => state.bookmark.pages)
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    async function getPages() {
-      const { data } = await api.get('/pages')
-
-      setPages(data)
-    }
-
-    getPages()
-  }, [])
-
-  // const handleSubmit = async e => {
-  //   e.preventDefault()
-  //   try {
-  //     const res = await api.post('/pages', { url })
-
-  //     if (res.status === 200) {
-  //       toast.success(res.data.message)
-  //     }
-  //   } catch (err) {
-  //     const { response } = err
-
-  //     if (response) toast.error(response.data.error)
-  //   }
-  // }
+    dispatch(BookmarkActions.requestGet())
+  }, [dispatch])
 
   return (
     <>
@@ -49,6 +29,7 @@ export default function Bookmark() {
               title={page.title}
               image={page.lead_image_url}
               type="bookmark"
+              onRemove={() => dispatch(BookmarkActions.delete(page.id))}
             />
           ))}
         </Cards>

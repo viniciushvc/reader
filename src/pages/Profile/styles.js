@@ -10,6 +10,11 @@ export const Tab = styled.div`
   display: flex;
 `
 
+export const Content = styled.div`
+  width: 100%;
+  padding-left: 50px;
+`
+
 export const Items = styled.div`
   position: sticky;
   top: 0px;
@@ -53,32 +58,5 @@ export const Items = styled.div`
         margin-bottom: 10px;
       }
     }
-
-    &.green {
-      background-color: #28a745;
-    }
-
-    &.red {
-      background-color: #dc3545;
-    }
-
-    &.dark {
-      background-color: #343a40;
-    }
   }
-`
-
-export const Content = styled.div`
-  width: 100%;
-  padding-left: 50px;
-`
-
-export const Title = styled.h1`
-  font-size: 25px;
-`
-
-export const Label = styled.label`
-  margin-bottom: 10px;
-  font-weight: 500;
-  display: block;
 `

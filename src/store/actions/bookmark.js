@@ -1,8 +1,30 @@
 import { Bookmark } from '../types'
 
-export const get = () => {
-  return {
-    type: Bookmark.GET_BOOKMARK,
-    payload: {},
-  }
+const BookmarkActions = {
+  add: url => ({
+    type: Bookmark.ADD,
+    payload: { url },
+  }),
+  addSuccess: page => ({
+    type: Bookmark.ADD_SUCCESS,
+    payload: { page },
+  }),
+  get: pages => ({
+    type: Bookmark.GET,
+    payload: { pages },
+  }),
+  requestGet: () => ({
+    type: Bookmark.REQUEST_GET,
+    payload: null,
+  }),
+  delete: id => ({
+    type: Bookmark.DELETE,
+    payload: { id },
+  }),
+  deleteSuccess: id => ({
+    type: Bookmark.DELETE_SUCCESS,
+    payload: { id },
+  }),
 }
+
+export default BookmarkActions

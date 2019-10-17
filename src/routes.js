@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, Switch, Router } from 'react-router-dom'
+import { Route, Switch, Router } from 'react-router-dom'
 
 import { history } from './utils'
 
@@ -17,20 +17,18 @@ const NotFound = LazyImport(() => import('./pages/NotFound'))
 
 const Routes = () => {
   return (
-    <BrowserRouter>
-      <Router history={history}>
-        <Switch>
-          <PrivateRoute exact path="/feed" component={Feed} />
-          <PrivateRoute exact path="/bookmark" component={Bookmark} />
-          <PrivateRoute exact path="/profile" component={Profile} />
-          <PrivateRoute exact path="/reader/:id" component={Reader} />
-          <Route exact path="/" component={Home} />
-          <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/signin" component={SignIn} />
-          <Route exact path="*" component={NotFound} />
-        </Switch>
-      </Router>
-    </BrowserRouter>
+    <Router history={history}>
+      <Switch>
+        <PrivateRoute path="/feed" component={Feed} />
+        <PrivateRoute path="/bookmark" component={Bookmark} />
+        <PrivateRoute path="/profile" component={Profile} />
+        <PrivateRoute path="/reader/:id" component={Reader} />
+        <Route exact path="/" component={Home} />
+        <Route path="/signup" component={SignUp} />
+        <Route path="/signin" component={SignIn} />
+        <Route path="*" component={NotFound} />
+      </Switch>
+    </Router>
   )
 }
 
