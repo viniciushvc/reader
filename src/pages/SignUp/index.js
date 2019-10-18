@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 
-import { createNewUser } from '../../store/actions/user'
+import UserActions from '../../store/actions/user'
 
 import { Input, Button } from '../../components'
 
@@ -18,7 +18,7 @@ export default function SignIn() {
   const handleSubmit = async e => {
     e.preventDefault()
 
-    dispatch(createNewUser(name, email, password))
+    dispatch(UserActions.add(name, email, password))
   }
 
   return (

@@ -1,33 +1,33 @@
-import { all, takeLatest, delay } from 'redux-saga/effects'
-import { toast } from 'react-toastify'
+import { all, takeLatest, put, delay } from 'redux-saga/effects'
 
-import { history } from '../../utils'
+import LoginActions from '../actions/login'
+import ToastActions from '../actions/toast'
 
 import { User } from '../types'
 import api from '../../services/api'
 
-export function* createNewUser(action) {
-  yield delay(500)
+function* addUserSagas(action) {
+  yield delay(100)
 
   const { name, email, password } = action.payload
 
   if (!name || !email || !password) {
-    toast.error('Preencha todos os dados para se cadastrar')
+    yield put(ToastActions.error('Preencha todos os dados para se cadastrar'))
   } else {
     try {
-      const response = yield api.post('/users', { name, email, password })
+      const { data } = yield api.post('/users', { name, email, password })
 
-      toast.success(response.data.message)
+      yield put(LoginActions.signInToken(data.token, data.name))
 
-      history.push('/')
+      yield put(ToastActions.success(data.message))
     } catch (err) {
       const { response } = err
 
-      if (response) toast.error(response.data.error)
+      yield put(ToastActions.error(response.data.error))
     }
   }
 }
 
-export default function* createUserSagas() {
-  yield all([yield takeLatest(User.CREATE_NEW_USER, createNewUser)])
+export function* addUser() {
+  yield all([yield takeLatest(User.ADD, addUserSagas)])
 }

@@ -1,19 +1,10 @@
-// eslint-disable-next-line no-restricted-globals
 import { User } from '../types'
 
-export const createNewUser = (name, email, password) => {
-  return {
-    type: User.CREATE_NEW_USER,
-    payload: {
-      name,
-      email,
-      password,
-    },
-  }
+const UserActions = {
+  add: (name, email, password) => ({
+    type: User.ADD,
+    payload: { name, email, password },
+  }),
 }
 
-export const getUserInfo = () => {
-  return {
-    type: User.USER_GET,
-  }
-}
+export default UserActions

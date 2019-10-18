@@ -11,11 +11,9 @@ export default function UserNavbar() {
   const dispatch = useDispatch()
 
   function handleNewPage() {
-    dispatch(
-      BookmarkActions.add(
-        'https://tecnoblog.net/311312/iphone-11-apple-a13-supera-snapdragon-855-testes-desempenho/'
-      )
-    )
+    const link = window.prompt()
+
+    dispatch(BookmarkActions.add(link))
   }
 
   return (

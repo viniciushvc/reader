@@ -1,40 +1,46 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { Link, Route } from 'react-router-dom'
-import loginActions from '../../store/actions/login'
-
-import Info from './Info'
-import Layout from './Layout'
-
+import { NavLink, Route } from 'react-router-dom'
 import { FiPower, FiUser } from 'react-icons/fi'
 
+import LazyImport from '../../components/LazyImport'
+
+import { Button } from '../../components/'
+
+import loginActions from '../../store/actions/login'
+
 import { Container, Items, Tab, Content } from './styles'
+
+const Info = LazyImport(() => import('./Info'))
+const Layout = LazyImport(() => import('./Layout'))
 
 export default function Profile() {
   const dispatch = useDispatch()
 
   const logout = () => {
-    dispatch(loginActions.logout())
+    dispatch(loginActions.signOut())
   }
 
   return (
     <Container>
       <Tab>
         <Items>
-          <Link to="/profile">
-            <p>Perfil</p>
-            <FiUser />
-          </Link>
+          <NavLink to="/profile">
+            <Button>
+              Perfil
+              <FiUser />
+            </Button>
+          </NavLink>
 
-          <Link to="/profile/theme">
+          <NavLink to="/profile/theme">
             <p>Theme</p>
             <FiUser />
-          </Link>
+          </NavLink>
 
-          <Link to="/" onClick={logout}>
+          <NavLink to="/" onClick={logout}>
             <p>Sair</p>
             <FiPower />
-          </Link>
+          </NavLink>
         </Items>
 
         <Content>

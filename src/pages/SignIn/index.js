@@ -16,7 +16,7 @@ export default function SignIn() {
   const handleSignIn = async e => {
     e.preventDefault()
 
-    dispatch(loginActions.login(email, password))
+    dispatch(loginActions.signIn(email, password))
   }
 
   return (
