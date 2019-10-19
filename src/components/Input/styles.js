@@ -19,3 +19,9 @@ export const InputField = styled.input`
     box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25);
   }
 `
+
+export const Label = styled.label`
+  font-weight: 500;
+  margin-bottom: 10px;
+  display: block;
+`

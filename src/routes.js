@@ -1,5 +1,8 @@
 import React from 'react'
 import { Route, Switch, Router } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+
+import UserActions from './store/actions/user'
 
 import { history } from './utils'
 
@@ -16,6 +19,10 @@ const Reader = LazyImport(() => import('./pages/Reader'))
 const NotFound = LazyImport(() => import('./pages/NotFound'))
 
 const Routes = () => {
+  const dispatch = useDispatch()
+
+  dispatch(UserActions.get())
+
   return (
     <Router history={history}>
       <Switch>

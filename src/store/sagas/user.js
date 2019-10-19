@@ -6,6 +6,9 @@ import ToastActions from '../actions/toast'
 import { User } from '../types'
 import api from '../../services/api'
 
+/**
+ * ADD
+ */
 function* addUserSagas(action) {
   yield delay(100)
 
@@ -30,4 +33,48 @@ function* addUserSagas(action) {
 
 export function* addUser() {
   yield all([yield takeLatest(User.ADD, addUserSagas)])
+}
+
+/**
+ * GET
+ */
+function* getUserSagas() {
+  try {
+    const { data } = yield api.get('/users')
+
+    yield put(LoginActions.signInSuccess(data.name))
+  } catch (err) {
+    const { response } = err
+
+    yield put(ToastActions.error(response.data.error))
+  }
+}
+
+export function* getUser() {
+  yield all([yield takeLatest(User.GET, getUserSagas)])
+}
+
+/**
+ * UPDATE
+ */
+function* updateUserSagas(action) {
+  const { username } = action.payload
+
+  try {
+    const { data } = yield api.put('/users', { username })
+
+    console.log(data)
+
+    yield put(LoginActions.signInSuccess(username))
+
+    yield put(ToastActions.success(data.message))
+  } catch (err) {
+    const { response } = err
+
+    yield put(ToastActions.error(response.data.error))
+  }
+}
+
+export function* updateUser() {
+  yield all([yield takeLatest(User.UPDATE, updateUserSagas)])
 }

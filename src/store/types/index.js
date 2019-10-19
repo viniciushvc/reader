@@ -16,6 +16,8 @@ export const Bookmark = {
 
 export const User = {
   ADD: 'USER_ADD',
+  GET: 'USER_GET',
+  UPDATE: 'USER_UPDATE',
 }
 
 export const Toast = {

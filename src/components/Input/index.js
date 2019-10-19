@@ -1,16 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { InputField } from './styles'
+import { InputField, Label } from './styles'
 
-export default function Input({ type, value, placeholder, onChange }) {
+export default function Input({ type, value, label, placeholder, onChange }) {
   return (
-    <InputField
-      type={type}
-      value={value}
-      placeholder={placeholder}
-      onChange={onChange}
-    />
+    <>
+      <Label>{label}</Label>
+      <InputField
+        type={type}
+        value={value}
+        placeholder={placeholder}
+        onChange={onChange}
+      />
+    </>
   )
 }
 

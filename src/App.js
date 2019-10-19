@@ -12,6 +12,7 @@ import GlobalStyles from './styles/global'
 
 function App() {
   const theme = useTheme()
+
   return (
     <ThemeProvider theme={theme}>
       <Provider store={store}>
