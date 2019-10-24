@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { breakLine } from '../../styles/_variables'
 
 export const Container = styled.div`
   display: block;
@@ -14,9 +15,9 @@ export const Container = styled.div`
 
   div {
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: 5% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 480px;
+    width: ${breakLine.md};
   }
 `

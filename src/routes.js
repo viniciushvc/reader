@@ -9,7 +9,6 @@ import { history } from './utils'
 import LazyImport from './components/LazyImport'
 import PrivateRoute from './components/PrivateRoute'
 
-const Home = LazyImport(() => import('./pages/Home'))
 const Feed = LazyImport(() => import('./pages/Feed'))
 const Bookmark = LazyImport(() => import('./pages/Bookmark'))
 const SignUp = LazyImport(() => import('./pages/SignUp'))
@@ -26,11 +25,10 @@ const Routes = () => {
   return (
     <Router history={history}>
       <Switch>
-        <PrivateRoute path="/feed" component={Feed} />
+        <PrivateRoute exact path="/" component={Feed} />
         <PrivateRoute path="/bookmark" component={Bookmark} />
         <PrivateRoute path="/profile" component={Profile} />
         <PrivateRoute path="/reader/:id" component={Reader} />
-        <Route exact path="/" component={Home} />
         <Route path="/signup" component={SignUp} />
         <Route path="/signin" component={SignIn} />
         <Route path="*" component={NotFound} />

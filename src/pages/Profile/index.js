@@ -29,7 +29,7 @@ export default function Profile() {
         </NavLink>
 
         <NavLink
-          to="/"
+          to="/signin"
           onClick={() => dispatch(loginActions.signOut())}
           className="red"
         >

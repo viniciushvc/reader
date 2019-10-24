@@ -27,7 +27,7 @@ function* signInSagas(action) {
 
       yield put(loginActions.signInSuccess(data.user.name))
 
-      history.push('/feed')
+      history.push('/')
     } catch (err) {
       toast.error(err.response.data.error)
     }
@@ -46,7 +46,7 @@ function* signInTokenSagas(action) {
 
   login(action.payload.token)
 
-  history.push('/feed')
+  history.push('/signin')
 }
 
 export function* signInToken() {

@@ -13,3 +13,8 @@ export const Container = styled.div`
 export const Title = styled.h1`
   margin: 50px 0;
 `
+
+export const Cards = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`

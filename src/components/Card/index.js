@@ -5,14 +5,14 @@ import { FiTrash2 } from 'react-icons/fi'
 
 import { Container } from './styles'
 
-export default function Card({ type = 'feed', title, image, onRemove }) {
+export default function Card({ title, image, onRemove, onClick }) {
   return (
-    <Container>
+    <Container onClick={onClick}>
       <img src={image} alt={title} />
       <h1>{title}</h1>
 
       <div className="actions">
-        {type === 'bookmark' && <FiTrash2 onClick={onRemove} />}
+        <FiTrash2 onClick={onRemove} />
       </div>
     </Container>
   )
@@ -20,7 +20,8 @@ export default function Card({ type = 'feed', title, image, onRemove }) {
 
 Card.propTypes = {
   type: PropTypes.string,
-  id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
+  image: PropTypes.string,
+  onRemove: PropTypes.func,
+  onClick: PropTypes.func,
 }

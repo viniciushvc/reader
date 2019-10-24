@@ -32,7 +32,7 @@ export default function Header() {
   return (
     <Navbar>
       <div>
-        <Link to="/feed" className="menu-brand">
+        <Link to="/" className="menu-brand">
           <FiBookOpen size="25" color="#249440" />
           <p>reader</p>
         </Link>

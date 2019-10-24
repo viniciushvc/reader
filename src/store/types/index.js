@@ -14,6 +14,15 @@ export const Bookmark = {
   DELETE_SUCCESS: 'BOOKMARK_DELETE_SUCCESS',
 }
 
+export const Feed = {
+  ADD: 'FEED_ADD',
+  GET: 'FEED_GET',
+  REQUEST_GET: 'FEED_REQUEST_GET',
+  DELETE: 'FEED_DELETE',
+  ADD_SUCCESS: 'FEED_ADD_SUCCESS',
+  DELETE_SUCCESS: 'FEED_DELETE_SUCCESS',
+}
+
 export const User = {
   ADD: 'USER_ADD',
   GET: 'USER_GET',

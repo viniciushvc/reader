@@ -31,7 +31,7 @@ export default function Sidebar({ children }) {
           </strong>
         </li>
         <li>
-          <NavLink to="feed" activeClassName="selected-route">
+          <NavLink exact to="/" activeClassName="selected-route">
             <FiRss />
             <span>Feed</span>
           </NavLink>

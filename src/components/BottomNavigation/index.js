@@ -23,7 +23,7 @@ export default function BottomNavigation() {
         <Container>
           <div className="items">
             <NavLink
-              to="/feed"
+              to="/"
               activeClassName="selected-route selected-bottom-navigation"
             >
               <FiRss size={20} />
