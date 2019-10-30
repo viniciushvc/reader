@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 
 export default function useTheme(defaultTheme = { mode: 'light' }) {
-  const [theme, _setTheme] = useState(getInitialTheme)
-
   function getInitialTheme() {
     const savedTheme = localStorage.getItem('theme')
     return savedTheme ? JSON.parse(savedTheme) : defaultTheme
   }
+
+  const [theme, _setTheme] = useState(getInitialTheme)
 
   useEffect(() => {
     localStorage.setItem('theme', JSON.stringify(theme))

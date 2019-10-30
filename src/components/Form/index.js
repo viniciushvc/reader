@@ -6,6 +6,6 @@ export default function Form({ children, onSubmit }) {
 }
 
 Form.propTypes = {
-  children: PropTypes.array.isRequired,
+  children: PropTypes.arrayOf.isRequired,
   onSubmit: PropTypes.func.isRequired,
 }

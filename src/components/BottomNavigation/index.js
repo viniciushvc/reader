@@ -1,6 +1,6 @@
-import React from 'react'
+import { useState, useEffect } from React from 'react'
 import { NavLink } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+
 import { FiBookmark, FiRss, FiUser } from 'react-icons/fi'
 import { getIsMobileScreen } from '../../utils'
 

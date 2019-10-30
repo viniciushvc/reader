@@ -2,8 +2,7 @@ import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
 
 import { isAuthenticated } from '../../services/auth'
-import { Sidebar } from '../../components'
-import { BottomNavigation } from '../'
+import { Sidebar, BottomNavigation } from '..'
 
 function PrivateRoute({ component: Component, ...rest }) {
   const userRoute = props => (

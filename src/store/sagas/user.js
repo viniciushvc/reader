@@ -63,8 +63,6 @@ function* updateUserSagas(action) {
   try {
     const { data } = yield api.put('/users', { username })
 
-    console.log(data)
-
     yield put(LoginActions.signInSuccess(username))
 
     yield put(ToastActions.success(data.message))

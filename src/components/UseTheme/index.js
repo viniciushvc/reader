@@ -26,7 +26,7 @@ export default function UseTheme() {
             theme.setTheme(
               theme.mode === 'dark'
                 ? { ...theme, mode: 'light' }
-                : { ...theme, mode: 'dark' }
+                : { ...theme, mode: 'dark' },
             )
           }
         >

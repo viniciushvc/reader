@@ -49,7 +49,7 @@ export default function Feed() {
         </Cards>
 
         <Modal show={showModal} onClose={() => setShowModal(false)}>
-          <p dangerouslySetInnerHTML={{ __html: contentModal }}></p>
+          <p dangerouslySetInnerHTML={{ __html: contentModal }} />
         </Modal>
       </Container>
     </>
