@@ -20,4 +20,10 @@ export default function FeedList({ title, onFavorite, onClick }) {
 FeedList.propTypes = {
   onFavorite: PropTypes.func,
   title: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+}
+
+FeedList.defaultProps = {
+  onFavorite: undefined,
+  onClick: undefined,
 }

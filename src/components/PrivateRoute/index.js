@@ -4,11 +4,11 @@ import { Route, Redirect } from 'react-router-dom'
 import { isAuthenticated } from '../../services/auth'
 import { Sidebar, BottomNavigation } from '..'
 
-function PrivateRoute({ component: Component, ...rest }) {
-  const userRoute = props => (
+function PrivateRoute({ component: Component }) {
+  const userRoute = () => (
     <Sidebar>
       <BottomNavigation />
-      <Component {...props} />
+      <Component />
     </Sidebar>
   )
 
@@ -16,7 +16,7 @@ function PrivateRoute({ component: Component, ...rest }) {
     <Redirect to={{ pathname: '/signin', state: { from: props.location } }} />
   )
 
-  return <Route {...rest} render={isAuthenticated() ? userRoute : guestRoute} />
+  return <Route render={isAuthenticated() ? userRoute : guestRoute} />
 }
 
 export default PrivateRoute

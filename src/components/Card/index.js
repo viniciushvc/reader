@@ -19,9 +19,14 @@ export default function Card({ title, image, onRemove, onClick }) {
 }
 
 Card.propTypes = {
-  type: PropTypes.string,
   title: PropTypes.string.isRequired,
   image: PropTypes.string,
   onRemove: PropTypes.func,
   onClick: PropTypes.func,
+}
+
+Card.defaultProps = {
+  image: undefined,
+  onRemove: undefined,
+  onClick: undefined,
 }

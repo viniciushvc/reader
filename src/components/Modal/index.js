@@ -18,3 +18,7 @@ Modal.propTypes = {
   children: PropTypes.any,
   onClose: PropTypes.func.isRequired,
 }
+
+Modal.defaultProps = {
+  children: undefined,
+}

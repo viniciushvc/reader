@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import FeedActions from '../../store/actions/feed'
 import BookmarkActions from '../../store/actions/bookmark'
 
-import { UserNavbar, FeedList, Modal } from '../../components'
+import { FeedList, Modal } from '../../components'
 
 import { Container, Title, Cards } from './styles'
 
@@ -31,27 +31,23 @@ export default function Feed() {
   }
 
   return (
-    <>
-      <UserNavbar />
+    <Container>
+      <Title>Notícias</Title>
 
-      <Container>
-        <Title>Notícias</Title>
+      <Cards>
+        {feed.map(item => (
+          <FeedList
+            key={item.title}
+            title={item.title}
+            onFavorite={e => handleSaveBookmark(e, item.link)}
+            onClick={() => handleOpenNews(item.content)}
+          />
+        ))}
+      </Cards>
 
-        <Cards>
-          {feed.map(item => (
-            <FeedList
-              key={item.title}
-              title={item.title}
-              onFavorite={e => handleSaveBookmark(e, item.link)}
-              onClick={() => handleOpenNews(item.content)}
-            />
-          ))}
-        </Cards>
-
-        <Modal show={showModal} onClose={() => setShowModal(false)}>
-          <p dangerouslySetInnerHTML={{ __html: contentModal }} />
-        </Modal>
-      </Container>
-    </>
+      <Modal show={showModal} onClose={() => setShowModal(false)}>
+        <p dangerouslySetInnerHTML={{ __html: contentModal }} />
+      </Modal>
+    </Container>
   )
 }

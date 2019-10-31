@@ -22,7 +22,7 @@ export default function UseTheme() {
       {theme => (
         <Toggle
           variant="primary"
-          onClick={e =>
+          onClick={() =>
             theme.setTheme(
               theme.mode === 'dark'
                 ? { ...theme, mode: 'light' }

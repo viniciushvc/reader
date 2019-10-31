@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import BookmarkActions from '../../store/actions/bookmark'
 
-import { Card, UserNavbar, Modal } from '../../components'
+import { Card, Modal } from '../../components'
 import { Container, Title, Cards } from './styles'
 
 export default function Bookmark() {
@@ -24,8 +24,6 @@ export default function Bookmark() {
 
   return (
     <>
-      <UserNavbar />
-
       <Container>
         <Title>Favoritos</Title>
 

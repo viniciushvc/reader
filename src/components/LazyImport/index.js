@@ -3,9 +3,9 @@ import React, { Suspense, lazy } from 'react'
 export default function LazyImport(Component) {
   const ComponentLoadable = lazy(Component)
 
-  return props => (
+  return () => (
     <Suspense fallback={<></>}>
-      <ComponentLoadable {...props} />
+      <ComponentLoadable />
     </Suspense>
   )
 }
