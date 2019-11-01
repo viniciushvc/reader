@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import BookmarkActions from '../../store/actions/bookmark'
 
-import { Card, Modal } from '../../components'
+import { BookmarkList, Modal } from '../../components'
 import { Container, Title, Cards } from './styles'
 
 export default function Bookmark() {
@@ -29,7 +29,7 @@ export default function Bookmark() {
 
         <Cards>
           {pages.map(page => (
-            <Card
+            <BookmarkList
               key={page.title}
               title={page.title}
               image={page.lead_image_url}

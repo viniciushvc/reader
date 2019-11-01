@@ -26,6 +26,16 @@
     "no-param-reassign": "off",
     "react/prop-types": "off",
     "react/destructuring-assignment": "off",
-    "react/jsx-curly-newline": "off"
+    "react/jsx-curly-newline": "off",
+    "complexity": ["warn", 5],
+    "max-statements": ["warn", { "max": 10 }],
+    "max-statements-per-line": ["warn", { "max": 1 }],
+    "max-params": ["warn", 3],
+    "max-nested-callbacks": ["error", { "max": 2 }],
+    "max-depth": ["error", { "max": 2 }],
+    "max-lines": ["warn", { "max": 85, "skipComments": true }],
+    "max-len": ["warn", 80],
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off"
   }
 }

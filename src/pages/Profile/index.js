@@ -19,12 +19,12 @@ export default function Profile() {
     <Container>
       <Items>
         <NavLink to="/profile" exact activeClassName="active">
-          <p>Perfil</p>
+          <span>Perfil</span>
           <FiUser />
         </NavLink>
 
         <NavLink to="/profile/theme" activeClassName="active">
-          <p>Tema</p>
+          <span>Tema</span>
           <FiLayout />
         </NavLink>
 
@@ -33,7 +33,7 @@ export default function Profile() {
           onClick={() => dispatch(loginActions.signOut())}
           className="red"
         >
-          <p>Sair</p>
+          <span>Sair</span>
           <FiPower />
         </NavLink>
       </Items>

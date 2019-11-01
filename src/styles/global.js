@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-import { primaryBackground, primaryColor } from './theme'
+import { primaryBackground, primaryColor, defaultFont, fontSize } from './theme'
 
 const GlobalStyles = createGlobalStyle`
 
@@ -22,7 +22,9 @@ html,body
  {
   background-color: ${primaryBackground};
   color: ${primaryColor};
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+   Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
+   "Segoe UI Emoji", "Segoe UI Symbol";
   height: 100%;
 }
 
@@ -36,6 +38,12 @@ html,body
 
 .selected-bottom-navigation {
   border-bottom: 1px solid #28a745
+}
+
+p{
+  font-size: ${fontSize};
+  font-family: ${defaultFont};
+  line-height: 30px;
 }
 `
 

@@ -5,10 +5,6 @@ const FeedActions = {
     type: Feed.ADD,
     payload: { url },
   }),
-  addSuccess: page => ({
-    type: Feed.ADD_SUCCESS,
-    payload: { page },
-  }),
   get: feed => ({
     type: Feed.GET,
     payload: { feed },

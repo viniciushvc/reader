@@ -11,16 +11,6 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         feed: action.payload.feed,
       }
-    // case Feed.ADD_SUCCESS:
-    //   return {
-    //     ...state,
-    //     pages: [...state.pages, action.payload.page],
-    //   }
-    // case Feed.DELETE_SUCCESS:
-    //   return {
-    //     ...state,
-    //     pages: state.pages.filter(item => item.id !== action.payload.id),
-    //   }
     default:
       return state
   }

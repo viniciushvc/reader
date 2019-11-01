@@ -5,10 +5,10 @@ import { FiTrash2 } from 'react-icons/fi'
 
 import { Container } from './styles'
 
-export default function Card({ title, image, onRemove, onClick }) {
+export default function BookmarkList({ title, image, onRemove, onClick }) {
   return (
     <Container onClick={onClick}>
-      <img src={image} alt={title} />
+      <img src={image} alt={title} loading="auto" />
       <h1>{title}</h1>
 
       <div className="actions">
@@ -18,14 +18,14 @@ export default function Card({ title, image, onRemove, onClick }) {
   )
 }
 
-Card.propTypes = {
+BookmarkList.propTypes = {
   title: PropTypes.string.isRequired,
   image: PropTypes.string,
   onRemove: PropTypes.func,
   onClick: PropTypes.func,
 }
 
-Card.defaultProps = {
+BookmarkList.defaultProps = {
   image: undefined,
   onRemove: undefined,
   onClick: undefined,

@@ -1,10 +1,10 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Card from '../../components/Card'
+import BookmarkList from '../../components/BookmarkList'
 
-describe('<Card />', () => {
-  it('render <Card /> with propTypes', () => {
-    const wrapper = shallow(<Card />)
+describe('<BookmarkList />', () => {
+  it('render <BookmarkList /> with propTypes', () => {
+    const wrapper = shallow(<BookmarkList />)
 
     expect(wrapper.exists()).toBe(true)
   })

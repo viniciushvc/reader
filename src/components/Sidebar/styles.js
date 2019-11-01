@@ -15,37 +15,21 @@ export const Nav = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: ${props => (props.show ? '300px' : '70px')};
+  width: 60px;
   background-color: ${secondaryBackground};
   color: ${primaryColor};
-  transition: 0.3s;
 
-  ul {
-    list-style: none;
-    width: 100%;
+  a {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    color: ${primaryColor};
 
-    strong {
-      font-weight: 500;
+    &:hover {
+      background-color: ${primaryBackground};
     }
-
-    a,
-    strong {
-      padding: 20px;
-      display: flex;
-      align-items: center;
-      font-size: ${props => (props.show ? '20px' : '0px')};
-      text-decoration: none;
-      color: ${primaryColor};
-
-      &:hover {
-        color: red;
-        background-color: ${primaryBackground};
-      }
-
-      svg {
-        font-size: 20px;
-        margin-right: 10px;
-      }
+    svg {
+      width: 100%;
     }
   }
 `

@@ -5,7 +5,7 @@ export const Container = styled.div`
   border-radius: 2px;
   background-color: ${secondaryBackground};
   display: inline-block;
-  height: 350px;
+  height: 300px;
   margin: 0 0.5rem 1rem 0.5rem;
   position: relative;
   max-width: 450px;

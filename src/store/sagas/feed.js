@@ -10,25 +10,21 @@ import api from '../../services/api'
 /**
  * ADD - Page
  */
-// function* addBookmarkSagas(action) {
-//   yield delay(200)
+function* addFeedSagas(action) {
+  const { url } = action.payload
 
-//   const { url } = action.payload
+  try {
+    yield api.post('/feed', { url })
 
-//   try {
-//     const { data } = yield api.post('/pages', { url })
+    yield put(FeedActions.requestGet())
+  } catch (err) {
+    yield put(ToastActions.error(err.response.data.error))
+  }
+}
 
-//     yield put(BookmarkActions.addSuccess(data.result))
-
-//     yield put(ToastActions.success(data.message))
-//   } catch (err) {
-//     yield put(ToastActions.error(err.response.data.error))
-//   }
-// }
-
-// export function* addBookmark() {
-//   yield all([yield takeLatest(Bookmark.ADD, addBookmarkSagas)])
-// }
+export function* addFeed() {
+  yield all([yield takeLatest(Feed.ADD, addFeedSagas)])
+}
 
 /**
  * GET - Pages

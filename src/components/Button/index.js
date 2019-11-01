@@ -3,16 +3,21 @@ import PropTypes from 'prop-types'
 
 import { Btn } from './styles'
 
-const Button = ({ children, className, type }) => (
-  <Btn type={type} className={className}>
-    {children}
-  </Btn>
-)
-
-Button.propTypes = {
-  children: PropTypes.string.isRequired,
-  className: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
+export default function Button({ children, className, type, onClick }) {
+  return (
+    <Btn type={type} className={className} onClick={onClick}>
+      {children}
+    </Btn>
+  )
 }
 
-export default Button
+Button.propTypes = {
+  children: PropTypes.any.isRequired,
+  className: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+}
+
+Button.defaultProps = {
+  onClick: undefined,
+}

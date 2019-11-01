@@ -23,6 +23,7 @@ export default function BottomNavigation() {
         <Container>
           <div className="items">
             <NavLink
+              exact
               to="/"
               activeClassName="selected-route selected-bottom-navigation"
             >

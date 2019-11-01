@@ -8,6 +8,10 @@ export const Container = styled.div`
   @media (max-width: ${breakLine.md}) {
     padding: 0 20px;
   }
+
+  button {
+    margin-bottom: 40px;
+  }
 `
 
 export const Title = styled.h1`
@@ -17,4 +21,5 @@ export const Title = styled.h1`
 export const Cards = styled.div`
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 100px;
 `

@@ -42,6 +42,10 @@ export const Btn = styled.button`
     font-weight: 700;
   }
 
+  &.medium {
+    font-weight: 500;
+  }
+
   &.round {
     border-radius: 30px;
   }

@@ -1,18 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
-import { FiBookmark, FiRss, FiMenu, FiUser } from 'react-icons/fi'
+import { FiBookmark, FiRss, FiUser } from 'react-icons/fi'
 
-import { getIsMobileScreen, getSidebar } from '../../utils'
-
+import { getIsMobileScreen } from '../../utils'
 import { Container, Main, Nav } from './styles'
 
 export default function Sidebar({ children }) {
-  const [toggle, setToggle] = useState(getSidebar)
   const [isMobile, setIsMobile] = useState(getIsMobileScreen)
 
-  useEffect(() => {
-    localStorage.setItem('sidebar', toggle)
-  }, [toggle])
+  const iconSize = 18
 
   useEffect(() => {
     const handleResize = () => {
@@ -23,35 +19,19 @@ export default function Sidebar({ children }) {
   }, [])
 
   const sidebar = (
-    <Nav role="navigation" show={toggle}>
-      <ul>
-        <li onClick={() => setToggle(!toggle)}>
-          <strong>
-            <FiMenu />
-          </strong>
-        </li>
-        <li>
-          <NavLink exact to="/" activeClassName="selected-route">
-            <FiRss />
-            <span>Feed</span>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/bookmark" activeClassName="selected-route">
-            <FiBookmark />
-            <span>Bookmark</span>
-          </NavLink>
-        </li>
-      </ul>
+    <Nav role="navigation">
+      <div className="link-pages">
+        <NavLink exact to="/" activeClassName="selected-route">
+          <FiRss size={iconSize} />
+        </NavLink>
+        <NavLink to="/bookmark" activeClassName="selected-route">
+          <FiBookmark size={iconSize} />
+        </NavLink>
+      </div>
 
-      <ul>
-        <li>
-          <NavLink to="profile" activeClassName="selected-route">
-            <FiUser />
-            <span>Perfil</span>
-          </NavLink>
-        </li>
-      </ul>
+      <NavLink to="profile" activeClassName="selected-route">
+        <FiUser size={iconSize} />
+      </NavLink>
     </Nav>
   )
 

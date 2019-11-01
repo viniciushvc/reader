@@ -2,7 +2,7 @@ import { all, fork } from 'redux-saga/effects'
 
 import { signIn, signOut, signInToken } from './login'
 import { addUser, getUser, updateUser } from './user'
-import { getFeed } from './feed'
+import { addFeed, getFeed } from './feed'
 import { getBookmark, addBookmark, deleteBookmark } from './bookmark'
 import { successMessage, errorMessage } from './toast'
 
@@ -19,6 +19,7 @@ export default function* rootSaga() {
     fork(deleteBookmark),
     fork(successMessage),
     fork(errorMessage),
+    fork(addFeed),
     fork(getFeed),
   ])
 }

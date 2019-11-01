@@ -64,7 +64,7 @@ export const Items = styled.div`
       margin-right: 10px;
     }
 
-    p {
+    span {
       @media (max-width: 540px) {
         display: none;
       }

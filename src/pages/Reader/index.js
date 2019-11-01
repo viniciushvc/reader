@@ -29,7 +29,7 @@ export default function Reader(props) {
           Exibir original
         </a>
 
-        <img src={page.lead_image_url} alt={page.title} />
+        <img src={page.lead_image_url} alt={page.title} loading="lazy" />
 
         <p>{page.content}</p>
       </div>
