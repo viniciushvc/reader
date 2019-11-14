@@ -11,7 +11,7 @@ export default function Layout() {
   const fonts = [
     { type: 'inherit', title: 'Padrão' },
     { type: 'roboto', title: 'Roboto' },
-    { type: 'montserrat', title: 'Montserrat' },
+    { type: 'merriweather', title: 'Merriweather' },
     { type: 'robotoSlab', title: 'Roboto Slab' },
     { type: 'notoSerif', title: 'Noto Serif' },
   ]

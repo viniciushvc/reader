@@ -5,13 +5,13 @@ import style from 'styled-theming'
  */
 export const primaryBackground = style('mode', {
   light: '#eee',
-  dark: '#23272A',
+  dark: '#2C2F33',
   sepia: '#f5eddd',
 })
 
 export const secondaryBackground = style('mode', {
   light: '#fff',
-  dark: '#2C2F33',
+  dark: '#23272A',
   sepia: '#f5e5c6',
 })
 
@@ -41,7 +41,7 @@ export const secondaryBorder = style('mode', {
 export const defaultFont = style('font', {
   default: 'inherit',
   roboto: 'Roboto, sans-serif',
-  montserrat: 'Montserrat, sans-serif',
+  montserrat: 'Merriweather, sans-serif',
   robotoSlab: 'Roboto Slab, serif',
   notoSerif: 'Noto Serif, serif',
 })
@@ -50,7 +50,7 @@ export const defaultFont = style('font', {
  * FONT SIZE
  */
 export const fontSize = style('size', {
-  small: '16px',
+  small: '18px',
   medium: '20px',
   large: '24px',
 })
