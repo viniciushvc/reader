@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { FiPlusCircle } from 'react-icons/fi'
-import { checkURL } from '../../utils'
 
 import FeedActions from '../../store/actions/feed'
 import BookmarkActions from '../../store/actions/bookmark'
