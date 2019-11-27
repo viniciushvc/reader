@@ -44,5 +44,13 @@ export const Container = styled.div`
       object-fit: cover;
       border-radius: 5px;
     }
+
+    div {
+      width: 100% !important;
+    }
+
+    iframe {
+      width: 100%;
+    }
   }
 `

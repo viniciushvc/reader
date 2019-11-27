@@ -22,6 +22,12 @@ export default function Bookmark() {
     setContentModal(value)
   }
 
+  function handleRemove(e, value) {
+    e.stopPropagation()
+
+    dispatch(BookmarkActions.delete(value))
+  }
+
   return (
     <>
       <Container>
@@ -34,7 +40,7 @@ export default function Bookmark() {
               title={page.title}
               image={page.lead_image_url}
               onClick={() => handleOpenNews(page.content)}
-              onRemove={() => dispatch(BookmarkActions.delete(page.id))}
+              onRemove={e => handleRemove(e, page.id)}
             />
           ))}
         </Cards>

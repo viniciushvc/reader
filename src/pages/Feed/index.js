@@ -35,18 +35,16 @@ export default function Feed() {
   function handleNewPage() {
     const link = window.prompt('Cole a URL do feed que deseja incluir')
 
-    if (checkURL(link)) dispatch(FeedActions.add(link))
+    dispatch(FeedActions.add(link))
   }
 
   return (
     <Container>
       <Title>Notícias</Title>
-
       <Button onClick={handleNewPage} className="green medium lg" type="button">
         Adicionar novo site
         <FiPlusCircle size={22} />
       </Button>
-
       <Cards>
         {feed.map(item => (
           <FeedList
@@ -57,7 +55,6 @@ export default function Feed() {
           />
         ))}
       </Cards>
-
       <Modal show={showModal} onClose={() => setShowModal(false)}>
         <p dangerouslySetInnerHTML={{ __html: contentModal }} />
       </Modal>
